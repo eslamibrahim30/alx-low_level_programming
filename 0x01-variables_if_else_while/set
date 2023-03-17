@@ -1,5 +1,0 @@
-#!/bin/bash
-cat files | while read line 
-do
-   touch $line
-done
