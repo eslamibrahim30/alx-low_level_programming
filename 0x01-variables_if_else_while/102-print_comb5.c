@@ -17,42 +17,32 @@ int main(void)
 	right2 = '1';
 	while (1)
 	{
-		while (1)
-		{
-			putchar(left1);
-			putchar(right1);
-			putchar(' ');
-			putchar(left2);
-			putchar(right2);
-			if(!(left1 == '9' && right1 == '8' && left2 == '9' && right2 == '9'))
-			{
-				putchar(',');
-				putchar(' ');
-			}
-			if (left2 == '9' && right2 == '9')
-			{
-				break;
-			}
-			if (right2 == '9')
-			{
-				left2++;
-				right2 = '0';
-			}
-			else
-			{
-				right2++;
-			}
-
-		}
-		if (left1 == '9' && right1 == 8)
+		putchar(left1);
+		putchar(right1);
+		putchar(' ');
+		putchar(left2);
+		putchar(right2);
+		if (left1 == '9' && right1 == '8' && left2 == '9' && right2 == '9')
 		{
 			break;
 		}
-		left1 = (right1 == '9' ? left1 + 1 : left1);
-		right1 = (right1 == '9' ? '0' : right1 + 1);
-		left2 = (right1 == '9' ? left1 + 1 : left1);
-		right2 = (right1 == '9' ? '0' : right1 + 1);
-		
+		else
+		{
+			putchar(',');
+			putchar(' ');
+		}
+		if (left2 == '9' && right2 == '9')
+		{
+			left1 = (right1 == '9' ? left1 + 1 : left1);
+			right1 = (right1 == '9' ? '0' : right1 + 1);
+			left2 = (right1 == '9' ? left1 + 1 : left1);
+			right2 = (right1 == '9' ? '0' : right1 + 1);
+		}
+		else
+		{
+			left2 = (right2 == '9' ? left2 + 1 : left2);
+			right2 = (right2 == '9' ? '0' : right2 + 1);
+		}
 	}
 	putchar('\n');
 	return (0);
