@@ -7,12 +7,7 @@
  *
  * Return: Always 0 (Success)
  */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
-int main(void)
+void print_putchar(void)
 {
 	char word[] = "_putchar\n";
         int size = 9, i = 0;
@@ -20,5 +15,9 @@ int main(void)
         {
                 _putchar(word[i]);
         }
+}
+int main(void)
+{
+	print_putchar();
 	return (0);
 }
