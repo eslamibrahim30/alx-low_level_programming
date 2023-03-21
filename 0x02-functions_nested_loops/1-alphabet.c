@@ -4,16 +4,6 @@
 /**
  * print_alphabet - print chars from a to z
  */
-void print_alphabet(void)
-{
-	char c;
-
-	for (c = 'a'; c <= 'z'; c++)
-	{
-		_putchar(c);
-	}
-	_putchar('\n');
-}
 
 /**
  * main - Entry point
@@ -22,6 +12,12 @@ void print_alphabet(void)
  */
 int main(void)
 {
-	print_alphabet();
+	char c;
+
+	for (c = 'a'; c <= 'z'; c++)
+	{
+		_putchar(c);
+	}
+	_putchar('\n');
 	return (0);
 }
