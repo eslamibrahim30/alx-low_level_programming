@@ -7,12 +7,12 @@
 void print_text(void)
 {
 	char word[] = "_putchar\n";
-        int size = 9;
+	int size = 9;
 	int i = 0;
-        for (i = 0; i < size; i++)
-        {
-                _putchar(word[i]);
-        }
+	for (i = 0; i < size; i++)
+	{
+		_putchar(word[i]);
+	}
 }
 
 /**
