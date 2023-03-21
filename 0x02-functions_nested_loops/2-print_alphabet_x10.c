@@ -2,7 +2,7 @@
 #include <unistd.h>
 
 /**
- * print_alphabet - print chars from a to z
+ * print_alphabet_x10 - print chars from a to z 10 times
  */
 void print_alphabet_x10(void)
 {
