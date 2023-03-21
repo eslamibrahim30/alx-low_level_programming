@@ -15,9 +15,9 @@ int _putchar(char c)
 }
 void print_putchar()
 {
-	char word[] = "_putchar";
-	int exit_code;
-	for(int i = 0; i < strlen(word); i++)
+	char word[] = "_putchar\n";
+	int exit_code, size = 9;
+	for(int i = 0; i < size; i++)
 	{
 		exit_code = _putchar(word[i]);
 	}
