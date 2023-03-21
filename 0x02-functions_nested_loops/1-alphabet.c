@@ -4,13 +4,7 @@
 /**
  * print_alphabet - print chars from a to z
  */
-
-/**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
-int main(void)
+void print_alphabet(void)
 {
 	char c;
 
@@ -19,5 +13,15 @@ int main(void)
 		_putchar(c);
 	}
 	_putchar('\n');
+}
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+	print_alphabet();
 	return (0);
 }
