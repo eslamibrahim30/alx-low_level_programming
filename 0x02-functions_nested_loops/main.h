@@ -13,7 +13,7 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
-void print_putchar()
+void print()
 {
 	char word[] = "_putchar\n";
 	int size = 9, i = 0;
