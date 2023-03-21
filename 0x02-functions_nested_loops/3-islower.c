@@ -2,8 +2,14 @@
 #include <unistd.h>
 
 /**
- * _islower - return 1 if the char is lower or 0 otherwise
+ * _islower - Check if the char is lower case
+ * @c: the char to be checked
+ * 
+ * Description: Longer description of the function)?
+ *
+ * Return: return 1 if the char is lower or 0 otherwise
  */
+
 int _islower(int c)
 {
 	if (c >= 97 && c <= 122)
