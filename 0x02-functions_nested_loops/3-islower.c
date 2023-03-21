@@ -2,7 +2,7 @@
 #include <unistd.h>
 
 /**
- * print_alphabet - print chars from a to z
+ * _islower - return 1 if the char is lower or 0 otherwise
  */
 int _islower(int c)
 {
