@@ -9,7 +9,6 @@
  *
  * Return: return 1 if the char is lower or 0 otherwise
  */
-
 int _islower(int c)
 {
 	if (c >= 97 && c <= 122)
