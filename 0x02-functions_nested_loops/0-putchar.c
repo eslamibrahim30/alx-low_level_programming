@@ -7,7 +7,7 @@
  *
  * Return: Always 0 (Success)
  */
-void print_putchar(void)
+void print_text(void)
 {
 	char word[] = "_putchar\n";
         int size = 9, i = 0;
@@ -18,6 +18,6 @@ void print_putchar(void)
 }
 int main(void)
 {
-	print_putchar();
+	print_text();
 	return (0);
 }
