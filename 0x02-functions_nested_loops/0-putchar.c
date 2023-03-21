@@ -6,8 +6,12 @@
  */
 void print_text(void)
 {
-	char word[] = "_putchar\n";
-        int size = 9, i = 0;
+	char* word;
+	word = "_putchar\n";
+        int size;
+	size = 9;
+	int i;
+	i = 0;
         for (i = 0; i < size; i++)
         {
                 _putchar(word[i]);
