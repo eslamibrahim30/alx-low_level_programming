@@ -3,11 +3,6 @@
 
 /**
  * print_text - print string "_putchar\n"
- * @parameterx: void
-(* a blank line
- * Description: Longer description of the function)?
-(* section header: Section description)*
- * Return: Description of the returned value
  */
 void print_text(void)
 {
