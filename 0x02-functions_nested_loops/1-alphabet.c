@@ -1,8 +1,6 @@
 #include "main.h"
 #include <unistd.h>
 
-void print_alphabet(void);
-
 /**
  * print_alphabet - print chars from a to z
  */
