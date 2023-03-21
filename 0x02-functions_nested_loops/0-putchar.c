@@ -2,11 +2,12 @@
 #include <unistd.h>
 
 /**
- * function :  Print_text
- *
- * Return: void
- *
- * Description: 'print text "_putchar\n"'
+ * print_text - print string "_putchar\n"
+ * @parameterx: void
+(* a blank line
+ * Description: Longer description of the function)?
+(* section header: Section description)*
+ * Return: Description of the returned value
  */
 void print_text(void)
 {
