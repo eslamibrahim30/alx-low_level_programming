@@ -1,9 +1,12 @@
 #include "main.h"
 #include <unistd.h>
+
 /**
- * main - Entry point
+ * Print_text
  *
- * Return: Always 0 (Success)
+ * Return: void
+ *
+ * use: print text "_putchar\n"
  */
 void print_text(void)
 {
@@ -14,6 +17,12 @@ void print_text(void)
                 _putchar(word[i]);
         }
 }
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
 	print_text();
