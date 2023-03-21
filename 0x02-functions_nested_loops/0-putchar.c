@@ -1,4 +1,4 @@
-#include "main.h"
+#include <unistd.h>
 
 /**
  * main - Entry point
@@ -7,8 +7,9 @@
  */
 int _putchar(char c)
 {
-        return (write(1, &c, 1));
+	return (write(1, &c, 1));
 }
+
 int main(void)
 {
 	char word[] = "_putchar\n";
