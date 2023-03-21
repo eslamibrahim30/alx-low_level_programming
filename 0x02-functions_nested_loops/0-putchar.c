@@ -2,11 +2,11 @@
 #include <unistd.h>
 
 /**
- * Print_text
+ * function :  Print_text
  *
  * Return: void
  *
- * use: print text "_putchar\n"
+ * Description: 'print text "_putchar\n"'
  */
 void print_text(void)
 {
