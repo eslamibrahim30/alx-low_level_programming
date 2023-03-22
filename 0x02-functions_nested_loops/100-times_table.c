@@ -7,13 +7,13 @@
  */
 void print_times_table(int n)
 {
+	int first;
+	int second;
+
 	if (n > 15 || n < 0)
 	{
 		return;
 	}
-	int first;
-	int second;
-
 	for (first = 0; first <= n; first++)
 	{
 		for (second = 0; second <= n; second++)
