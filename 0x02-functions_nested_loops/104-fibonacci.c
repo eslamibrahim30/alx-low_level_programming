@@ -8,9 +8,9 @@
  */
 int main(void)
 {
-	unsigned long int a;
-	unsigned long int b;
-	unsigned long int temp;
+	long double a;
+	long double b;
+	long double temp;
 	int i;
 
 	a = 1;
@@ -18,7 +18,7 @@ int main(void)
 	i = 1;
 	while (1)
 	{
-		printf("%lu", a);
+		printf("%Lf", a);
 		if (i == 98)
 		{
 			printf("\n");
