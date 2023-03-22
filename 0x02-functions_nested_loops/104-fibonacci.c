@@ -16,12 +16,12 @@ int main(void)
 	b = 2;
 	for (i = 1; i <= 98;)
 	{
-		if (i == 98 && (a % 10 == 1 || b % 10 == 2))
+		if (i == 98)
 		{
 			printf("%lu\n", a);
 			i++;
 		}
-		else if (a % 10 == 1 || b % 10 == 2)
+		else
 		{
 			printf("%lu, ", a);
 			i++;
