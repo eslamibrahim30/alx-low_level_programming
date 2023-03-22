@@ -10,7 +10,6 @@ int main(void)
 	unsigned long int a;
 	unsigned long int b;
 	unsigned long int temp;
-	int i;
 
 	a = 1;
 	b = 2;
