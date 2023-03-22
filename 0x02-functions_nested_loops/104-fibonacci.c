@@ -27,23 +27,23 @@ int main(void)
 		}
 		for (j = max_j; j >= 0; j--)
 		{
-			_putchar('0' + a[j]);
+			puts('0' + a[j]);
 		}
 		if (i == 98)
 		{
-			printf("\n", a);
+			puts("\n");
 			break;
 		}
 		else
 		{
-			printf(", ", a);
+			puts(", ");
 			i++;
 		}
 		strcpy(temp, a);
 		strcpy(a, b);
 		for (j = 0; j < 50; j++)
 		{
-			b[j] = b[j] + temp[j] + carrry;
+			b[j] = b[j] + temp[j] + carry;
 			carry = b[j] / 10;
 			b[j] = b[j] % 10;
 		}
