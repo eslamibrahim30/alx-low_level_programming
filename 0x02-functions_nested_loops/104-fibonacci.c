@@ -8,9 +8,9 @@
  */
 int main(void)
 {
-	unsigned long long a;
-	unsigned long long b;
-	unsigned long long temp;
+	unsigned long int a;
+	unsigned long int b;
+	unsigned long int temp;
 	int i;
 	int j;
 
