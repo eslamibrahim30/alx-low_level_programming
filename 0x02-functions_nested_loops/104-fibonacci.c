@@ -18,7 +18,7 @@ int main(void)
 	b = 2;
 	while (1)
 	{
-		puts(a);
+		printf("%lu", a);
 		if (i == 98)
 		{
 			puts("\n");
