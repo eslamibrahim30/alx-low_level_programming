@@ -1,5 +1,6 @@
 #include "main.h"
 #include <unistd.h>
+#include <stdio.h>
 
 /**
  * times_table - print the times table for 9
@@ -13,11 +14,7 @@ void times_table(void)
 	{
 		for (second = 0; second <= 9; second++)
 		{
-			_putchar('0' + (first * second) % 10);
-			if ((first * second) / 10 != 0)
-			{
-				_putchar('0' + ((first * second) / 10) % 10);
-			}
+			printf("%03d", first * second);
 			if (second != 9)
 			{
 				_putchar(',');
