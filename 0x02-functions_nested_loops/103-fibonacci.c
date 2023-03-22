@@ -7,6 +7,7 @@
  */
 int main(void)
 {
+	unsigned long int sum;
 	unsigned long int a;
 	unsigned long int b;
 	unsigned long int temp;
@@ -15,17 +16,11 @@ int main(void)
 	b = 2;
 	for (; a <= 4000000;)
 	{
-		if (b >= 4000000 && a % 2 == 0)
-		{
-			printf("%lu\n", a);
-		}
-		else if (a % 2 == 0)
-		{
-			printf("%lu, ", a);
-		}
+		sum += a;
 		temp = a;
 		a = b;
 		b = temp + b;
 	}
+	printf("%d\n", sum);
 	return (0);
 }
