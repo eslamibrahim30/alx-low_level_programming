@@ -14,9 +14,13 @@ void print_to_98(int n)
 	{
 		add = -1;
 	}
-	else
+	else if (n <= 98)
 	{
 		add = 1;
+	}
+	else
+	{
+		fprintf(stderr, "%s", "There is some error!\n");
 	}
 	while (1)
 	{
