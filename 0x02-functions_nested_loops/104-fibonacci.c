@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 /**
  * main - Entry point
@@ -17,7 +18,7 @@ int main(void)
 	i = 1;
 	while (1)
 	{
-		printf("%0.0ld", a);
+		printf("%0.0Lf", a);
 		if (i == 98)
 		{
 			printf("\n");
@@ -30,7 +31,7 @@ int main(void)
 		}
 		temp = a;
 		a = b;
-		
+		b =  round(temp) + roundr(b); 	
 	}
 	return (0);
 }
