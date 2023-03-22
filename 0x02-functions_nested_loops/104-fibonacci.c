@@ -15,17 +15,18 @@ int main(void)
 
 	a = 1;
 	b = 2;
+	i = 1;
 	while (1)
 	{
 		printf("%lu", a);
 		if (i == 98)
 		{
-			puts("\n");
+			printf("\n");
 			break;
 		}
 		else
 		{
-			puts(", ");
+			printf(", ");
 			i++;
 		}
 		temp = a;
