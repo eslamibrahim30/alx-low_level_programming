@@ -31,7 +31,7 @@ int main(void)
 		}
 		temp = a;
 		a = b;
-		b =  round(temp) + roundr(b); 	
+		b =  round(temp) + round(b); 	
 	}
 	return (0);
 }
