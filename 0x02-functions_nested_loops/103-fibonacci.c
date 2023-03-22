@@ -16,7 +16,10 @@ int main(void)
 	b = 2;
 	for (; a <= 4000000;)
 	{
-		sum += a;
+		if (a % 2 == 0)
+		{
+			sum += a;
+		}
 		temp = a;
 		a = b;
 		b = temp + b;
