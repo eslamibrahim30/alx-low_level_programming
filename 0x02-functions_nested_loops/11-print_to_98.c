@@ -14,24 +14,20 @@ void print_to_98(int n)
 	{
 		add = -1;
 	}
-	else if (n <= 98)
-	{
-		add = 1;
-	}
 	else
 	{
-		fprintf(stderr, "%s", "There is some error!\n");
+		add = 1;
 	}
 	while (1)
 	{
 		if (n == 98)
 		{
-			printf("%d", 98);
+			fprintf(stderr, "%d", 98);
 			break;
 		}
 		else
 		{
-			printf("%d, ", n);
+			fprintf(stderr, "%d, ", n);
 			n = n + add;
 		}
 	}
