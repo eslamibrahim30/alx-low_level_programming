@@ -18,7 +18,7 @@ int main(void)
 	i = 1;
 	while (1)
 	{
-		printf("%Lf", a);
+		printf("%0.0Lf", a);
 		if (i == 98)
 		{
 			printf("\n");
