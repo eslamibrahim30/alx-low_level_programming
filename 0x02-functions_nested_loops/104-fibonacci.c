@@ -14,12 +14,12 @@ int main(void)
 
 	a = 1;
 	b = 2;
-	for (i = 1; i <= 98;)
+	while (1)
 	{
 		if (i == 98)
 		{
 			printf("%lu\n", a);
-			i++;
+			break;
 		}
 		else
 		{
