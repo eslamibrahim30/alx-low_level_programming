@@ -22,13 +22,9 @@ int main(void)
 	{
 		max_j = 50;
 		while (a[max_j] == 0)
-		{
 			j--;
-		}
 		for (j = max_j; j >= 0; j--)
-		{
-			puts('0' + a[j]);
-		}
+			printf("%c", '0' + a[j]);
 		if (i == 98)
 		{
 			puts("\n");
