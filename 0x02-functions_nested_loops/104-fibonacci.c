@@ -15,8 +15,8 @@ int main(void)
 	int j;
 	int carry;
 
-	a[0] = 1;
-	b[0] = 2;
+	a[0] = '1';
+	b[0] = '2';
 	while (1)
 	{
 		printf("%s", strrev(a));
@@ -34,9 +34,9 @@ int main(void)
 		strcpy(a, b);
 		for (j = 0; j < 50; j++)
 		{
-			b[j] = b[j] + temp[j] + carry;
+			b[j] = b[j] - '0' + temp[j] - '0' + carry;
 			carry = b[j] / 10;
-			b[j] = b[j] % 10;
+			b[j] = '0' + (b[j] % 10);
 		}
 	}
 	return (0);
