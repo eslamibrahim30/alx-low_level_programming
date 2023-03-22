@@ -13,18 +13,13 @@ int main(void)
 	char temp[50];
 	int i;
 	int j;
-	int max_j;
 	int carry;
 
 	a[0] = 1;
 	b[0] = 2;
 	while (1)
 	{
-		max_j = 50;
-		while (a[max_j] == 0)
-			j--;
-		for (j = max_j; j >= 0; j--)
-			printf("%c", '0' + a[j]);
+		printf("%s", strrev(a));
 		if (i == 98)
 		{
 			puts("\n");
