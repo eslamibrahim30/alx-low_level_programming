@@ -19,7 +19,9 @@ int main(void)
 	b[0] = '2';
 	while (1)
 	{
-		printf("%s", strrev(a));
+		strrev(a);
+		printf("%s", a);
+		strrev(a);
 		if (i == 98)
 		{
 			puts("\n");
