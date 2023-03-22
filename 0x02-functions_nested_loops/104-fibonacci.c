@@ -13,8 +13,8 @@ int main(void)
 	long double temp;
 	int i;
 
-	a = 1;
-	b = 2;
+	a = 1.0L;
+	b = 2.0L;
 	i = 1;
 	while (1)
 	{
@@ -31,7 +31,7 @@ int main(void)
 		}
 		temp = a;
 		a = b;
-		b = round(round(b) + round(temp));
+		b += temp;;
 	}
 	return (0);
 }
