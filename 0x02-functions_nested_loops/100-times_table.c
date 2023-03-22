@@ -30,7 +30,10 @@ void print_times_table(int n)
 		{
 			_putchar(',');
 		}
-		_putchar('\n');
+		if (second == n)
+		{
+			_putchar('\n');
+		}
 		if (second == n && first == n)
 			break;
 		first = second == n ? first + 1 : first;
