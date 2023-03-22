@@ -1,15 +1,15 @@
 #include "main.h"
 #include <unistd.h>
+#include <stdio.h>
 
 /**
  * print_to_98 - Prints all natural numbers from given number to 98
+ * @n: the starting number of counting
  */
 void print_to_98(int n)
 {
 	int add;
-	int num;
 
-	num = n;
 	if (n > 98)
 	{
 		add = -1;
@@ -20,23 +20,16 @@ void print_to_98(int n)
 	}
 	while (1)
 	{
-		num = n;
-		if (num == 98)
+		if (n == 98)
 		{
-			_putchar('0' + 9);
-			_putchar('0' + 8);
+			printf("%d", 98);
 			break;
 		}
 		else
 		{
-			while (num > 0)
-			{
-				_putchar('0' + num % 10);
-				num = num / 10;
-			}
-			_putchar(',');
-			_putchar(' ');
+			printf("%d, ", n);
 			n = n + add;
 		}
 	}
+	_putchar('\n');
 }
