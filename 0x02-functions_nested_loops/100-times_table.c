@@ -22,20 +22,25 @@ void print_times_table(int n)
 		{
 			_putchar('0' + ans);
 		}
-		_putchar(' ');
-		_putchar(ans > 99 ? '0' + (ans / 100) : ' ');
-		_putchar(ans > 9 ? '0' + (ans / 10) % 10 : ' ');
-		_putchar('0' + ans % 10);
+		else
+		{
+			_putchar(' ');
+			_putchar(ans > 99 ? '0' + (ans / 100) : ' ');
+			_putchar(ans > 9 ? '0' + (ans / 10) % 10 : ' ');
+			_putchar('0' + ans % 10);
+		}
 		if (second != n)
 		{
 			_putchar(',');
 		}
-		if (second == n)
+		else
 		{
 			_putchar('\n');
 		}
 		if (second == n && first == n)
+		{
 			break;
+		}
 		first = second == n ? first + 1 : first;
 		second = second == n ? 0 : second + 1;
 	}
