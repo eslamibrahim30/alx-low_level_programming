@@ -12,7 +12,6 @@ int main(void)
 	unsigned long int b;
 	unsigned long int temp;
 	int i;
-	int j;
 
 	a = 1;
 	b = 2;
