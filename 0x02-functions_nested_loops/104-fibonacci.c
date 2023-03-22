@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <string.h>
+#include <math.h>
 
 /**
  * main - Entry point
@@ -31,7 +31,7 @@ int main(void)
 		}
 		temp = a;
 		a = b;
-		b = b + temp;
+		b = round(round(b) + round(temp));
 	}
 	return (0);
 }
