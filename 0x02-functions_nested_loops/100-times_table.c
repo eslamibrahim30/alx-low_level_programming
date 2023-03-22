@@ -15,6 +15,8 @@ void print_times_table(int n)
 	{
 		return;
 	}
+	first = 0;
+	second = 0;
 	while (1)
 	{
 		ans = first * second;
