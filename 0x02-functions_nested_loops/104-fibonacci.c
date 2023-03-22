@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 /**
  * main - Entry point
@@ -7,28 +8,45 @@
  */
 int main(void)
 {
-	unsigned long int a;
-	unsigned long int b;
-	unsigned long int temp;
+	char a[50];
+	char b[50];
+	char temp[50];
 	int i;
+	int j;
+	int max_j;
+	int carry;
 
-	a = 1;
-	b = 2;
+	a[0] = 1;
+	b[0] = 2;
 	while (1)
 	{
+		max_j = 50;
+		while (a[max_j] == 0)
+		{
+			j--;
+		}
+		for (j = max_j; j >= 0; j--)
+		{
+			_putchar('0' + a[j]);
+		}
 		if (i == 98)
 		{
-			printf("%lu\n", a);
+			printf("\n", a);
 			break;
 		}
 		else
 		{
-			printf("%lu, ", a);
+			printf(", ", a);
 			i++;
 		}
-		temp = a;
-		a = b;
-		b = temp + b;
+		strcpy(temp, a);
+		strcpy(a, b);
+		for (j = 0; j < 50; j++)
+		{
+			b[j] = b[j] + temp[j] + carrry;
+			carry = b[j] / 10;
+			b[j] = b[j] % 10;
+		}
 	}
 	return (0);
 }
