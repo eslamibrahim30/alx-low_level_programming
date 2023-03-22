@@ -7,9 +7,9 @@
  */
 int main(void)
 {
-	int a;
-	int b;
-	int temp;
+	unsigned long int a;
+	unsigned long int b;
+	unsigned long int temp;
 	int i;
 
 	a = 1;
@@ -18,11 +18,11 @@ int main(void)
 	{
 		if (i == 50)
 		{
-			printf("%d\n", a);
+			printf("%lu\n", a);
 		}
 		else
 		{
-			printf("%d, ", a);
+			printf("%lu, ", a);
 		}
 		temp = a;
 		a = b;
