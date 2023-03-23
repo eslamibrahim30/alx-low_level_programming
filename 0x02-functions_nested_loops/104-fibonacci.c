@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 /**
  * main - Entry point
@@ -12,12 +13,12 @@ int main(void)
 	long double temp;
 	int i;
 
-	a = 1.0L;
-	b = 2.0L;
+	a = 1;
+	b = 2;
 	i = 1;
 	while (1)
 	{
-		printf("%1.0Lf", a);
+		printf("%.0Lf", a);
 		if (i == 98)
 		{
 			printf("\n");
@@ -28,9 +29,9 @@ int main(void)
 			printf(", ");
 			i++;
 		}
-		temp = a;
-		a = b;
-		b = b + temp;
+		temp = floorl(a);
+		a = floorl(b);
+		b = floorl(floorl(b) + floorl(temp));
 	}
 	return (0);
 }
