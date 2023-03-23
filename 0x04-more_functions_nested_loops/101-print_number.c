@@ -6,7 +6,7 @@
  */
 void print_number(int n)
 {
-	int reversed_n;
+	unsigned int reversed_n;
 	int copy_n;
 	int mul;
 
