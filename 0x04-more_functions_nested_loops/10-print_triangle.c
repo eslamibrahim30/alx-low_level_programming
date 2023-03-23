@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_square - Draws a triangle using number of #
+ * print_triangle - Draws a triangle using number of #
  * @size: the length of the triangle
  */
 void print_triangle(int size)
