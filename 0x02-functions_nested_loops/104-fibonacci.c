@@ -20,13 +20,18 @@ int main(void)
 	{
 		if (i == 98)
 		{
-			printf("%lu%lu\n", a_2, a_1);
+			printf("%lu", a_2);
+			printf("%lu", a_1);
+			printf("\n");
 		}
 		else
 		{
 			if (a_2 != 0)
 			{
-				printf("%lu%lu, ", a_2, a_1);
+				printf("%lu", a_2);
+				printf("%lu", a_1);
+				printf(",");
+				printf(" ");
 			}
 			else
 			{
