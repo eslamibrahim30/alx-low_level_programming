@@ -28,10 +28,7 @@ int main(void)
 		{
 			if (a_2 != 0)
 			{
-				printf("%lu", a_2);
-				printf("%lu", a_1);
-				printf(",");
-				printf(" ");
+				printf("%lu%lu, ", a_2, a_1);
 			}
 			else
 			{
