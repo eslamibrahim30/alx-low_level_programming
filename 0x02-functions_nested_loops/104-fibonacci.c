@@ -19,6 +19,11 @@ int main(void)
 	i = 1;
 	while (1)
 	{
+		if (i == 98)
+		{
+			printf("%lu%lu\n", a_2, a_1);
+			break;
+		}
 		if (a_2 != 0)
 		{
 			printf("%lu%lu", a_2, a_1);
@@ -27,16 +32,8 @@ int main(void)
 		{
 			printf("%lu", a_1);
 		}
-		if (i == 98)
-		{
-			printf("\n");
-			break;
-		}
-		else
-		{
-			printf(", ");
-			i++;
-		}
+		printf(", ");
+		i++;
 		temp_2 = a_2;
 		temp_1 = a_1;
 		a_2 = b_2;
