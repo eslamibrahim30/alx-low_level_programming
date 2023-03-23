@@ -22,20 +22,23 @@ int main(void)
 		{
 			printf("%lu%lu\n", a_2, a_1);
 		}
-		if (a_2 != 0)
-		{
-			printf("%lu%lu, ", a_2, a_1);
-		}
 		else
 		{
-			printf("%lu, ", a_1);
+			if (a_2 != 0)
+			{
+				printf("%lu%lu, ", a_2, a_1);
+			}
+			else
+			{
+				printf("%lu, ", a_1);
+			}
+			temp_2 = a_2;
+			temp_1 = a_1;
+			a_2 = b_2;
+			a_1 = b_1;
+			b_2 = (temp_2 + b_2 + ((temp_1 + b_1) / 10000000000));
+			b_1 = (temp_1 + b_1) % 10000000000;
 		}
-		temp_2 = a_2;
-		temp_1 = a_1;
-		a_2 = b_2;
-		a_1 = b_1;
-		b_2 = (temp_2 + b_2 + ((temp_1 + b_1) / 10000000000));
-		b_1 = (temp_1 + b_1) % 10000000000;
 	}
 	return (0);
 }
