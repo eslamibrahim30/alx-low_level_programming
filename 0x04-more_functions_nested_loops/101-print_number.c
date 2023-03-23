@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_number - Prints the given number
@@ -6,41 +7,45 @@
  */
 void print_number(int n)
 {
-	unsigned int reversed_n;
-	int copy_n;
-	int mul;
+	unsigned int mul;
+	int c_n;
+	int p_n;
 
-	mul = 1;
-	reversed_n = 0;
-	copy_n = n;
-	while (copy_n != 0)
+	mul = 0;
+	c_n = n;
+	if (n < 0)
 	{
-		mul *= 10;
-		copy_n /= 10;
+		_putchar('-');
 	}
-	mul /= 10;
+	while (c_n != 0)
+	{
+		if (mul == 0)
+		{
+			mul = 1;
+		}
+		else
+		{
+			mul *= 10;
+		}
+		c_n /= 10;
+	}
+	c_n = n;
 	if (n == 0)
 	{
 		_putchar('0');
 	}
 	else
 	{
-		if (n < 0)
+		while (mul)
 		{
-			_putchar('-');
-			n *= -1;
-		}
-		while (n)
-		{
-			reversed_n += (n % 10) * mul;
+			p_n = c_n / mul;
+			p_n %= 10;
+			if (p_n < 0)
+			{
+				p_n *= -1;
+			}
+			_putchar('0' + p_n);
 			mul /= 10;
-			n /= 10;
 		}
-		while (reversed_n)
-		{
-			_putchar('0' + reversed_n % 10);
-			reversed_n /= 10;
-		}
-
 	}
 }
