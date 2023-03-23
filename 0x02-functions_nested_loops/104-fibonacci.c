@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 
 /**
  * main - Entry point
@@ -8,17 +7,26 @@
  */
 int main(void)
 {
-	long double a;
-	long double b;
-	long double temp;
+	unsigned long a_2, a_1;
+	unsigned long b_2, b_1;
+	unsigned long temp_2, temp_1;
 	int i;
 
-	a = 1;
-	b = 2;
+	a_1 = 1;
+	b_1 = 2;
+	a_2 = 0;
+	b_2 = 0;
 	i = 1;
 	while (1)
 	{
-		printf("%.0Lf", a);
+		if (a_2 != 0)
+		{
+			printf("%lu%lu", a_2, a_1);
+		}
+		else
+		{
+			printf("%lu", a_1);
+		}
 		if (i == 98)
 		{
 			printf("\n");
@@ -29,9 +37,12 @@ int main(void)
 			printf(", ");
 			i++;
 		}
-		temp = floorl(a);
-		a = floorl(b);
-		b = floorl(floorl(b) + floorl(temp));
+		temp_2 = a_2;
+		temp_1 = a_1;
+		a_2 = b_2;
+		a_1 = b_1;
+		b_2 = (temp_2 + b_2 + ((temp_1 + b_1) / 10000000000));
+		b_1 = (temp_1 + b_1) % 10000000000;
 	}
 	return (0);
 }
