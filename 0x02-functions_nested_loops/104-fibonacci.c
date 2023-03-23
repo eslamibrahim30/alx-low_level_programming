@@ -26,13 +26,12 @@ int main(void)
 		}
 		if (a_2 != 0)
 		{
-			printf("%lu%lu", a_2, a_1);
+			printf("%lu%lu, ", a_2, a_1);
 		}
 		else
 		{
-			printf("%lu", a_1);
+			printf("%lu, ", a_1);
 		}
-		printf(", ");
 		i++;
 		temp_2 = a_2;
 		temp_1 = a_1;
