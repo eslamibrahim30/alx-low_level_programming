@@ -30,7 +30,6 @@ int main(void)
 		{
 			printf("%lu, ", a_1);
 		}
-		i++;
 		temp_2 = a_2;
 		temp_1 = a_1;
 		a_2 = b_2;
