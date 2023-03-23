@@ -16,13 +16,11 @@ int main(void)
 	b_1 = 2;
 	a_2 = 0;
 	b_2 = 0;
-	i = 1;
-	while (1)
+	for (i = 1; i <= 98; i++)
 	{
 		if (i == 98)
 		{
 			printf("%lu%lu\n", a_2, a_1);
-			break;
 		}
 		if (a_2 != 0)
 		{
