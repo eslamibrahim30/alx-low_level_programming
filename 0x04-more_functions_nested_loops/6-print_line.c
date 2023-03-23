@@ -2,6 +2,7 @@
 
 /**
  * print_line - Prints line using n number of _
+ * @n: the number of _ to display
  */
 void print_line(int n)
 {
