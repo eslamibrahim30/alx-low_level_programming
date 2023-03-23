@@ -40,10 +40,7 @@ void print_number(int n)
 		{
 			p_n = c_n / mul;
 			p_n %= 10;
-			if (p_n < 0)
-			{
-				p_n *= -1;
-			}
+			p_n = p_n < 0 ? -1 * p_n : p_n;
 			_putchar('0' + p_n);
 			mul /= 10;
 		}
