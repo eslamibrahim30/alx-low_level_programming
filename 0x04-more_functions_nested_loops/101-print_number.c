@@ -19,17 +19,10 @@ void print_number(int n)
 	}
 	while (c_n != 0)
 	{
-		if (mul == 0)
-		{
-			mul = 1;
-		}
-		else
-		{
-			mul *= 10;
-		}
+		mul = mul == 0 ? 1 : mul * 10;
 		c_n /= 10;
 	}
-	c_n = n;
+	c_n = n > -2147483648  && n < 0 ? -1 * n : n;
 	if (n == 0)
 	{
 		_putchar('0');
