@@ -3,6 +3,7 @@
 /**
  * _strlen - Get the length of the given string
  * @s: the given string address
+ * Return: the length of the given string
  */
 int _strlen(char *s)
 {
