@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * main - Entry point
@@ -9,16 +10,26 @@
  */
 int main(void)
 {
-	int p;
-	int i;
+	char str[128] = "";
+	char c;
+	int sum;
+	int idx;
 
-	p = 0;
+	sum = 2772;
 	srand(time(0));
-	for (i = 0; i < 8; i++)
+	idx = 0;
+	while (sum > 0)
 	{
-		p *= 10;
-		p += rand() % 10;
+		c = (char)(48 + rand() % 42);
+		if ((int)(c) > sum || sum - (int)(c) < 48)
+		{
+			c = (char)(sum);
+		}
+		str[idx] = c;
+		idx++;
+		sum -= (int)(c);
 	}
-	printf("%d", p);
+	str[idx] = '\0';
+	printf("%s", str);
 	return (0);
 }
