@@ -26,15 +26,8 @@ void print_number(int n)
 	len--;
 	while (1)
 	{
-		if (n < 0)
-		{
-			tmp_n = -1 * (n + 1);
-			tmp_n += 1;
-		}
-		else
-		{
-			tmp_n = n;
-		}
+		tmp_n = n < 0 ? -1 * (n + 1) : n;
+		tmp_n += n < 0 ? 1 : 0;
 		tmp_len = len;
 		while (tmp_len > 0)
 		{
