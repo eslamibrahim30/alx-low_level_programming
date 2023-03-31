@@ -18,8 +18,7 @@ void print_buffer(char *b, int size)
 	}
 	while (i < size)
 	{
-		j = i;
-		printf("%08x:", i);
+		printf("%08x:", j = i);
 		c = 10;
 		while (c > 0)
 		{
@@ -42,16 +41,9 @@ void print_buffer(char *b, int size)
 		c = 10;
 		while (c > 0 && j < size)
 		{
-			if ((int)(b[j]) >= 32 && (int)(b[j]) <= 126)
-			{
-				printf("%c", b[j]);
-			}
-			else
-			{
-				printf(".");
-			}
-			c--;
+			printf("%c", ((int)(b[j]) >= 32 && (int)(b[j]) <= 126) ? b[j] : '.');
 			j++;
+			c--;
 		}
 		printf("\n");
 	}
