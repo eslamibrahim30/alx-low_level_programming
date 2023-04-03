@@ -17,11 +17,11 @@ unsigned int _strspn(char *s, char *accept)
 
 	ptr_s = s;
 	len = 0;
-	while (1)
+	while (*ptr_s != '\0')
 	{
 		ptr_accept = accept;
 		found = 0;
-		while (1)
+		while (*ptr_accept != '\0')
 		{
 			if (*ptr_accept == *ptr_s)
 			{
@@ -29,16 +29,12 @@ unsigned int _strspn(char *s, char *accept)
 				found = 1;
 				break;
 			}
-			else if (*ptr_accept == '\0')
-			{
-				break;
-			}
 			else
 			{
 				ptr_accept += 1;
 			}
 		}
-		if (found == 0 || *ptr_s == '\0')
+		if (found == 0)
 		{
 			break;
 		}
