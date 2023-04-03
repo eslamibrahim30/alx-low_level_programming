@@ -8,15 +8,5 @@
  */
 void set_string(char **s, char *to)
 {
-	char *ns;
-	int idx;
-
-	idx = 0;
-	ns = malloc(255);
-	while (*(to + idx) != '\0')
-	{
-		*(ns + idx) = *(to + idx);
-		idx++;
-	}
-	*s = ns;
+	*s = to;
 }
