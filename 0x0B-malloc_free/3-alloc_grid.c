@@ -20,10 +20,10 @@ int **alloc_grid(int width, int height)
 	}
 	else
 	{
-		grid = (int**)realloc(grid, height * sizeof(int*));
+		grid = (int **)realloc(grid, height * sizeof(int *));
 		for (i = 0; i < height; i++)
 		{
-			grid[i] = (int*)(realloc(grid[i], width * sizeof(int)));
+			grid[i] = (int *)(realloc(grid[i], width * sizeof(int)));
 			for (j = 0; j < width; j++)
 			{
 				grid[i][j] = 0;
