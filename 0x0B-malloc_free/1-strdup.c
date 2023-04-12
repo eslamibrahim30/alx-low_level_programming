@@ -10,7 +10,7 @@
  */
 char *_strdup(char *str)
 {
-	char *cpyStr = malloc(strlen(str));
+	char *cpyStr = malloc((int)(strlen(str)));
 	int len;
 	int i;
 
