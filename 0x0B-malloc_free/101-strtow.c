@@ -52,13 +52,13 @@ char **strtow(char *str)
 	int j;
 	int idx;
 
-	if (str == NULL || strlen(str) == 0)
+	wc = countWords(str);
+	if (str == NULL || strlen(str) == 0 || wc == 0)
 	{
 		return (NULL);
 	}
 	else
 	{
-		wc = countWords(str);
 		words = (char **)malloc((wc + 1) * sizeof(char *));
 		cw = 0;
 		for (i = 0; i < (int)(strlen(str)); i++)
