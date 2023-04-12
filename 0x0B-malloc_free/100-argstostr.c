@@ -31,7 +31,7 @@ char *argstostr(int ac, char **av)
 			}
 			len++;
 		}
-		str = realloc(str, len);
+		str = realloc(str, len + 1);
 		if (str == NULL)
 		{
 			return (NULL);
@@ -47,6 +47,7 @@ char *argstostr(int ac, char **av)
 			str[len] = '\n';
 			len++;
 		}
+		str[len] = '\0';
 		return (str);
 	}
 }
