@@ -17,27 +17,20 @@ char *str_concat(char *s1, char *s2)
 	int len1;
 	int len2;
 
-	if (s1 == NULL && s2 == NULL)
+	len1 = s1 == NULL ? 0 : strlen(s1);
+	len2 = s2 == NULL ? 0 : strlen(s2);
+	s = realloc(s, len1 + len2 + 1);
+	j = 0;
+	for (i = 0; i < len1; i++)
 	{
-		return (NULL);
+		s[j] = s1[i];
+		j++;
 	}
-	else
+	for (i = 0; i < len2; i++)
 	{
-		len1 = s1 == NULL ? 0 : strlen(s1);
-		len2 = s2 == NULL ? 0 : strlen(s2);
-		s = realloc(s, len1 + len2 + 1);
-		j = 0;
-		for (i = 0; i < len1; i++)
-		{
-			s[j] = s1[i];
-			j++;
-		}
-		for (i = 0; i < len2; i++)
-		{
-			s[j] = s2[i];
-			j++;
-		}
-		s[j] = '\0';
-		return (s);
+		s[j] = s2[i];
+		j++;
 	}
+	s[j] = '\0';
+	return (s);
 }
