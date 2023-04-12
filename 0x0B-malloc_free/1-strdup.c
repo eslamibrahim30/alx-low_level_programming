@@ -10,7 +10,7 @@
  */
 char *_strdup(char *str)
 {
-	char *cpyStr = malloc((int)(strlen(str)));
+	char *cpyStr = malloc((int)(strlen(str)) + 1);
 	int len;
 	int i;
 
@@ -25,6 +25,7 @@ char *_strdup(char *str)
 		{
 			cpyStr[i] = str[i];
 		}
+		cpyStr[i] = '\0';
 		return (cpyStr);
 	}
 }
