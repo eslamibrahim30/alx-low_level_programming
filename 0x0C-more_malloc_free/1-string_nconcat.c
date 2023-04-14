@@ -1,0 +1,44 @@
+#include "main.h"
+#include <stdlib.h>
+#include <string.h>
+
+/**
+ * string_nconcat - Concatenates two strings
+ * @s1: the first string
+ * @s2: the second string
+ * @n: the first n bytes of the second string
+ *
+ * Return: the address of the memory which has the two concatenated strings
+ */
+char *string_nconcat(char *s1, char *s2, unsigned int n)
+{
+	char *s;
+	unsigned int i;
+
+	if (s1 == NULL && s2 == NULL)
+	{
+		return (NULL);
+	}
+	else if (s1 == NULL)
+	{
+		return (s2);
+	}
+	else if (s2 == NULL)
+	{
+		return (s1);
+	}
+	else
+	{
+		s = malloc((unsigned int)(strlen(s1)) + n + 1);
+		for (i = 0; i < (unsigned int)strlen(s1); i++)
+		{
+			s[i] = s1[i];
+		}
+		for (; i < (unsigned int)(strlen(s1)) + n; i++)
+		{
+			s[i] = s2[i - (unsigned int)(strlen(s1))];
+		}
+		s[i] = '\0';
+		return (s);
+	}
+}
