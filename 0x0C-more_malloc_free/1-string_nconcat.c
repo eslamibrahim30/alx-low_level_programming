@@ -14,28 +14,23 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *s;
 	unsigned int i;
-	unsigned int len;
+	unsigned int s1_len;
+	unsigned int s2_len;
 
-	s = malloc((unsigned int)(strlen(s1)) + n + 1);
-	if (s == NULL)
+	s1_len = s1 == NULL ? 0 : strlen(s1);
+	s2_len = s2 == NULL ? 0 : strlen(s2);
+	if (n < s2_len)
 	{
-		return (NULL);
+		s2_len = n;
 	}
-	for (i = 0; i < (unsigned int)strlen(s1); i++)
+	s = malloc(s1_len + s2_len + 1);
+	for (i = 0; i < s1_len; i++)
 	{
 		s[i] = s1[i];
 	}
-	if (n >= (unsigned int)(strlen(s2)))
+	for (; i < s1_len + s2_len; i++)
 	{
-		len = (unsigned int)strlen(s1) + (unsigned int)strlen(s2);
-	}
-	else
-	{
-		len = (unsigned int)(strlen(s1)) + n;
-	}
-	for (; i < len; i++)
-	{
-		s[i] = s2[i - (unsigned int)(strlen(s1))];
+		s[i] = s2[i - s1_len];
 	}
 	s[i] = '\0';
 	return (s);
