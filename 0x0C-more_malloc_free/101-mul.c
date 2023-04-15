@@ -106,18 +106,31 @@ void assign_large(int *arr, char *str)
 	len = strlen(str);
 	for (i = 0; i < len; i++)
 	{
-		if (str[i] >= '0' && str[i] <= '9')
-		{
-			arr[i] = str[i] - '0';
-		}
-		else
-		{
-			printf("Error\n");
-			exit(98);
-		}
+		arr[i] = str[i] - '0';
 	}
 }
 
+/**
+ * is_number - checks if the given string can be a number
+ * @str: the given string
+ *
+ * Return: 1 if the given string is a valid number, or 0 otherwise
+ */
+int is_number(char *str)
+{
+	unsigned int i;
+	unsigned int size;
+
+	size = strlen(str);
+	for (i = 0; i < size; i++)
+	{
+		if (!(str[i] >= '0' && str[i] <= '9'))
+		{
+			return (0);
+		}
+	}
+	return (1);
+}
 
 /**
  * main - check the code for
@@ -136,7 +149,7 @@ int main(int argc, char **argv)
 	unsigned int j;
 	unsigned int rem;
 
-	if (argc != 3)
+	if (argc != 3 || !is_number(argv[1]) || !is_number(argv[2]))
 	{
 		printf("Error\n");
 		exit(98);
