@@ -65,7 +65,7 @@ void print_large(int *num, unsigned int size)
 	}
 	if (leading_zeros == 1)
 	{
-		printf("%d", 0);
+		printf("0");
 	}
 	printf("\n");
 }
