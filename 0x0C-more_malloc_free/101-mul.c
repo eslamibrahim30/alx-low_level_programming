@@ -63,6 +63,10 @@ void print_large(int *num, unsigned int size)
 			printf("%d", *(num + i));
 		}
 	}
+	if (leading_zeros == 1)
+	{
+		printf("0");
+	}
 	printf("\n");
 }
 
@@ -139,10 +143,8 @@ int main(int argc, char **argv)
 	}
 	len_ans = (int)strlen(argv[1]) + (int)strlen(argv[2]) + 5;
 	num1 = malloc(len_ans * sizeof(int));
-	num2 = malloc(len_ans * sizeof(int));
-	ans = malloc(len_ans * sizeof(int));
-	zero_array(num2, len_ans);
-	zero_array(ans, len_ans);
+	num2 = calloc(len_ans, sizeof(int));
+	ans = calloc(len_ans, sizeof(int));
 	assign_large(num2, argv[2]);
 	reverse_nums(num2, (unsigned int)(strlen(argv[2])));
 	for (i = 0; i < len_ans; i++)
