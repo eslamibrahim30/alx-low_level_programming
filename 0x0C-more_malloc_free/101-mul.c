@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 /**
  * zero_array - Initializes an array with zeros
@@ -65,7 +66,7 @@ void print_large(int *num, unsigned int size)
 	}
 	if (leading_zeros == 1)
 	{
-		printf("0");
+		printf("%d", 0);
 	}
 	printf("\n");
 }
@@ -116,15 +117,11 @@ void assign_large(int *arr, char *str)
  *
  * Return: 1 if the given string is a valid number, or 0 otherwise
  */
-int is_number(char *str)
+int is_number(const char *str)
 {
-	unsigned int i;
-	unsigned int size;
-
-	size = strlen(str);
-	for (i = 0; i < size; i++)
+	while (*str)
 	{
-		if (!(str[i] >= '0' && str[i] <= '9'))
+		if (isdigit(*str++) == 0)
 		{
 			return (0);
 		}
