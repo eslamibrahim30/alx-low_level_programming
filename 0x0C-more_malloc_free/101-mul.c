@@ -112,18 +112,29 @@ void assign_large(int *arr, char *str)
 }
 
 /**
- * is_number - checks if the given string can be a number
- * @str: the given string
+ * valid_arguments - checks if the given arguments are valid
+ * @argc: the number of arguments
+ * @argv: the given arguments
  *
- * Return: 1 if the given string is a valid number, or 0 otherwise
+ * Return: 1 if the given arguments are valid number, or 0 otherwise
  */
-int is_number(const char *str)
+int valid_arguments(int argc, char **argv)
 {
-	while (*str)
+	char **arg;
+	char *p;
+
+	if (argc != 3)
 	{
-		if (isdigit(*str++) == 0)
+		return (0);
+	}
+	for (arg = argv + 1; *arg; ++arg)
+	{
+		for (p = *arg; *p; ++p)
 		{
-			return (0);
+			if (!isdigit(*p))
+			{
+				return (0);
+			}
 		}
 	}
 	return (1);
@@ -146,7 +157,7 @@ int main(int argc, char **argv)
 	unsigned int j;
 	unsigned int rem;
 
-	if (argc != 3 || !is_number(argv[1]) || !is_number(argv[2]))
+	if (!valid_arguments(argc, argv))
 	{
 		printf("Error\n");
 		exit(98);
