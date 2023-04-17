@@ -26,8 +26,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 	dog->age = age;
 	if (owner == NULL)
-	{
-		dog->owner = realloc(dog->owner, sizeof(owner));
 		strcpy(dog->name, name);
 	}
 	return (dog);
