@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include "dog.h"
 
 /**
@@ -18,8 +19,16 @@ dog_t *new_dog(char *name, float age, char *owner)
 	{
 		return (NULL);
 	}
-	dog->name = name;
+	if (name != NULL)
+	{	
+		dog->name = realloc(dog->name, sizeof(name));
+		strcpy(dog->name, name);
+	}
 	dog->age = age;
-	dog->owner = owner;
+	if (owner == NULL)
+	{
+		dog->owner = realloc(dog->owner, sizeof(owner));
+		strcpy(dog->name, name);
+	}
 	return (dog);
 }
