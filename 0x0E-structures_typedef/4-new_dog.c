@@ -3,7 +3,7 @@
 #include "dog.h"
 
 /**
- * new_dog - Creates a new dog
+ * new_dog - Allocates memory for new dog's data
  * @name: the dog's name
  * @age: the dog's age
  * @owner: the dog owner's name
