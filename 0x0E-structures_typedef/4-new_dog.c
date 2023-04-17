@@ -21,11 +21,11 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 	if (name != NULL)
 	{	
-		dog->name = realloc(dog->name, sizeof(name));
 		strcpy(dog->name, name);
 	}
 	dog->age = age;
 	if (owner == NULL)
+	{
 		strcpy(dog->name, name);
 	}
 	return (dog);
