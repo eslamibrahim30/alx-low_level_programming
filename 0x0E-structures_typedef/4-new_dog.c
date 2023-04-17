@@ -21,14 +21,14 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 	if (name != NULL)
 	{
-		dog->name = malloc(1000);
-		dog->name = memcpy(dog->name, name, strlen(name));
+		dog->name = malloc(sizeof(name));
+		dog->name = memcpy(dog->name, name, sizeof(name));
 	}
 	dog->age = age;
 	if (name != NULL)
 	{
-		dog->owner = malloc(1000);
-		dog->owner = memcpy(dog->owner, owner, strlen(owner));
+		dog->owner = malloc(sizeof(name));
+		dog->owner = memcpy(dog->owner, owner, sizeof(owner));
 	}
 	return (dog);
 }
