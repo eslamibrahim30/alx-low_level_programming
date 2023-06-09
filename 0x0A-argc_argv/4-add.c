@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 				if (!isdigit(*j))
 				{
 					printf("Error\n");
-					return (0);
+					return (1);
 				}
 			}
 		}
