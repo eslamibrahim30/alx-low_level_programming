@@ -30,7 +30,7 @@ char *_strdup(char *str)
 			break;
 		}
 	}
-	strCopy = (char *)malloc(size * sizeof(char));
+	strCopy = (char *)malloc((size + 1) * sizeof(char));
 	if (strCopy == NULL)
 	{
 		return (NULL);
