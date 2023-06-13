@@ -67,17 +67,20 @@ char **strtow(char *str)
 	if (str == NULL || strlen(str) == 0)
 		return (NULL);
 	nWords = count_words(str);
-	arr = (char **)malloc(nWords * sizeof(char *));
+	arr = (char **)malloc((nWords + 1) * sizeof(char *));
 	if (arr == NULL)
 		return (NULL);
-	for (i = 0; str[i] != '\0' && cWord < nWords; i++)
+	while (i < strlen(str) && cWord < nWords)
 	{
 		if (str[i] != ' ')
 		{
 			j = i;
 			wordSize = 0;
-			while (str[i] != ' ' && str[i] != '\0')
+			while (str[i] != ' ' && i < strlen(str))
+			{
+				wordSize++;
 				i++;
+			}
 			arr[cWord] = (char *)malloc((wordSize + 1) * sizeof(char));
 			if (arr[cWord] == NULL)
 			{
@@ -89,6 +92,8 @@ char **strtow(char *str)
 			arr[cWord][wordSize] = '\0';
 			cWord++;
 		}
+		i++;
 	}
+	arr[cWord] = NULL;
 	return (arr);
 }
