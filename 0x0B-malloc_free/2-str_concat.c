@@ -16,40 +16,32 @@ char *str_concat(char *s1, char *s2)
 	char *newStr;
 	char *ptrStr;
 	char *ptrNew;
-	unsigned int size;
+	unsigned int size1;
+	unsigned int size2;
 
-	if (s1 == NULL && s2 == NULL)
-	{
-		return ("");
-	}
-	if (s1 == NULL)
-	{
-		return (s2);
-	}
-	if (s2 == NULL)
-	{
-		return (s1);
-	}
-	size = strlen(s1) + strlen(s2) + 1;
-	newStr = (char *)malloc(size * sizeof(char));
+	size1 = strlen(s1);
+	size2 = strlen(s2);
+	newStr = (char *)malloc((size1 + size2 + 1) * sizeof(char));
 	if (newStr == NULL)
 	{
 		return (NULL);
 	}
 	ptrNew = newStr;
 	ptrStr = s1;
-	while (*ptrStr != '\0')
+	while (size1 > 0)
 	{
 		*ptrNew = *ptrStr;
 		ptrStr++;
 		ptrNew++;
+		size1--;
 	}
 	ptrStr = s2;
-	while (*ptrStr != '\0')
+	while (size2 > 0)
 	{
 		*ptrNew = *ptrStr;
 		ptrStr++;
 		ptrNew++;
+		size2--;
 	}
 	*ptrNew = '\0';
 	return (newStr);
