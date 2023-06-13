@@ -19,8 +19,8 @@ char *str_concat(char *s1, char *s2)
 	unsigned int size1;
 	unsigned int size2;
 
-	size1 = strlen(s1);
-	size2 = strlen(s2);
+	size1 = s1 == NULL ? 0 : strlen(s1);
+	size2 = s2 == NULL ? 0 : strlen(s2);
 	newStr = (char *)malloc((size1 + size2 + 1) * sizeof(char));
 	if (newStr == NULL)
 	{
