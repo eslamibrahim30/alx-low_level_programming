@@ -64,9 +64,9 @@ char **strtow(char *str)
 	unsigned int cWord = 0;
 	unsigned int nWords = 0;
 
-	if (str == NULL || strlen(str) == 0)
-		return (NULL);
 	nWords = count_words(str);
+	if (str == NULL || strlen(str) == 0 || nWords == 0)
+		return (NULL);
 	arr = (char **)malloc((nWords + 1) * sizeof(char *));
 	if (arr == NULL)
 		return (NULL);
