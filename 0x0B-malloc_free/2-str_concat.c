@@ -18,6 +18,10 @@ char *str_concat(char *s1, char *s2)
 	char *ptrNew;
 	unsigned int size;
 
+	if (s1 == NULL && s2 == NULL)
+	{
+		return ("");
+	}
 	if (s1 == NULL)
 	{
 		return (s2);
