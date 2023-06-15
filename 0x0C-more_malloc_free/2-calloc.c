@@ -11,16 +11,16 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *ptr;
+	void *arr;
 
 	if (nmemb == 0 || size == 0)
 	{
 		return (NULL);
 	}
-	ptr = malloc(nmemb * size);
-	if (ptr == NULL)
+	arr = (void *)malloc(nmemb * size);
+	if (arr == NULL)
 	{
 		return (NULL);
 	}
-	return (ptr);
+	return (arr);
 }
