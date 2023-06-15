@@ -24,11 +24,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	concatStrings = malloc(size);
 	if (concatStrings == NULL)
 	{
-		exit(98);
+		return (NULL);
 	}
+	i = 0;
 	while (i < strlen(s1))
 	{
-		*(concatStrings +i) = s1[i];
+		*(concatStrings + i) = s1[i];
 		i++;
 	}
 	j = 0;
