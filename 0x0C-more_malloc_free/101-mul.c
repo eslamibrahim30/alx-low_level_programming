@@ -78,18 +78,7 @@ void mul(char *num1, unsigned int size1, char *num2, unsigned int size2)
 	int size = size1 + size2 + 2;
 
 	ans = malloc(size);
-	if (ans == NULL)
-	{
-		printf("Error\n");
-		exit(98);
-	}
 	temp = malloc(size1 + 1);
-	if (temp == NULL)
-	{
-		free(ans);
-		printf("Error\n");
-		exit(98);
-	}
 	zero_memory(&ans, size);
 	for (i = size2 - 1; i >= 0; i--)
 	{
@@ -137,6 +126,11 @@ int main(int argc, char **argv)
 	}
 	size1 = strlen(argv[1]);
 	size2 = strlen(argv[2]);
+	if (size1 == 0 || size2 == 0)
+	{
+		printf("Error\n");
+		exit(98);
+	}
 	check_nums = is_number(argv[1], size1) && is_number(argv[2], size2);
 	if (check_nums == 0)
 	{
