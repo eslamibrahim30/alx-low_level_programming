@@ -75,10 +75,21 @@ void mul(char *num1, unsigned int size1, char *num2, unsigned int size2)
 	int j = 0;
 	int k = 0;
 	int l = 0;
-	int size = size1 + size2 + 5;
+	int size = size1 + size2 + 2;
 
 	ans = malloc(size);
+	if (ans == NULL)
+	{
+		printf("Error\n");
+		exit(98);
+	}
 	temp = malloc(size1 + 1);
+	if (temp == NULL)
+	{
+		free(ans);
+		printf("Error\n");
+		exit(98);
+	}
 	zero_memory(&ans, size);
 	for (i = size2 - 1; i >= 0; i--)
 	{
@@ -87,7 +98,7 @@ void mul(char *num1, unsigned int size1, char *num2, unsigned int size2)
 		l = 0;
 		for (j = k; j < size - 1; j++)
 		{
-			if (l < (int)size1 + 1)
+			if ((unsigned int)l < size1 + 1)
 			{
 				ans[j] += temp[l++];
 			}
@@ -99,13 +110,8 @@ void mul(char *num1, unsigned int size1, char *num2, unsigned int size2)
 	k = size - 1;
 	while (ans[k] == 0 && k >= 0)
 		k--;
-	if (k < 0)
-		_putchar('0');
-	else
-	{
-		while (k >= 0)
-			_putchar(ans[k--] + '0');
-	}
+	while (k >= 0)
+		_putchar(ans[k--] + '0');
 	_putchar('\n');
 	free(ans);
 	free(temp);
