@@ -89,21 +89,22 @@ void mul(char *num1, unsigned int size1, char *num2, unsigned int size2)
 		{
 			if (l < (int)size1 + 1)
 			{
-				ans[j] += temp[l];
+				ans[j] += temp[l++];
 			}
 			ans[j + 1] += ans[j] / 10;
 			ans[j] %= 10;
-			l++;
 		}
 		k++;
 	}
 	k = size - 1;
-	while (ans[k] == 0)
+	while (ans[k] == 0 && k >= 0)
 		k--;
-	while (k >= 0)
+	if (k < 0)
+		_putchar('0');
+	else
 	{
-		_putchar(ans[k] + '0');
-		k--;
+		while (k >= 0)
+			_putchar(ans[k--] + '0');
 	}
 	_putchar('\n');
 	free(ans);
@@ -136,13 +137,9 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		exit(98);
 	}
-	if (size1 > size2)
-	{
+	if (size1 >= size2)
 		mul(argv[1], size1, argv[2], size2);
-	}
 	else
-	{
 		mul(argv[2], size2, argv[1], size1);
-	}
 	return (0);
 }
