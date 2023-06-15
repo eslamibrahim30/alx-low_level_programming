@@ -17,24 +17,26 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	unsigned int i = 0;
 	unsigned int j = 0;
-	unsigned int size = 0;
+	unsigned int size1 = 0;
+	unsigned int size2 = 0;
 	char *concatStrings = NULL;
 
-	size = strlen(s1) + n + 1;
-	concatStrings = malloc(size);
+	size1 = s1 == NULL ? 0 : strlen(s1);
+	size2 = s2 == NULL ? 0 : strlen(s2);
+	size2 = n >= size2 ? size2 : n;
+	concatStrings = malloc(size1 + size2 + 1);
 	if (concatStrings == NULL)
 	{
 		return (NULL);
 	}
 	i = 0;
-	while (i < strlen(s1))
+	while (i < size1)
 	{
 		*(concatStrings + i) = s1[i];
 		i++;
 	}
 	j = 0;
-	size = strlen(s2) >= n ? n : strlen(s2);
-	while (j < size)
+	while (j < size2)
 	{
 		*(concatStrings + i) = s2[j];
 		i++;
