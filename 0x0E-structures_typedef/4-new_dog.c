@@ -17,7 +17,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	unsigned int size_name = name == NULL ? 0 : strlen(name) + 1;
 	unsigned int size_owner = owner == NULL ? 0 : strlen(owner) + 1;
 	unsigned int i = 0;
-	dog_t *dog = malloc(sizeof(dog));
+	dog_t *dog = malloc(sizeof(dog_t));
 
 	if (dog == NULL)
 		return (NULL);
