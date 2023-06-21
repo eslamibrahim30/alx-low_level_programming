@@ -29,14 +29,14 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		exit(2);
 	}
-	p = &main;
+	p = (void *)(&main);
 	for (i = 0; i < n; i++)
 	{
 		sprintf(s, "%x", *(p + i));
 		c1 = s[strlen(s) - 2];
 		c2 = s[strlen(s) - 1];
-		printf("%c", c1 == NULL ? '0' : c1);
-		printf("%c", c2 == NULL ? '0' : c2);
+		printf("%c", c1 == 0 ? '0' : c1);
+		printf("%c", c2 == 0 ? '0' : c2);
 		if (i == n - 1)
 		{
 			printf("\n");
