@@ -6,8 +6,6 @@
  * main - Entry point
  * @argc: the number of arguments of the main function
  * @argv: the actual arguments of the main function
- *
- * Return: Always 0 (Success)
  */
 void main(int argc, char **argv)
 {
