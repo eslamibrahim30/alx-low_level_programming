@@ -27,6 +27,8 @@ void print_all(const char * const format, ...)
 	unsigned int j = strlen(format) - 1;
 	va_list ap;
 
+	if (format == NULL)
+		return;
 	while (format[j] != 'c' && format[j] != 's'
 		       && format[j] != 'i' && format[j] != 'f')
 		j--;
