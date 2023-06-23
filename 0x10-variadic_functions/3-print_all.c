@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
+#include <stdlib.h>
 #include "variadic_functions.h"
 
 /**
@@ -10,8 +11,8 @@
 void print_all(const char * const format, ...)
 {
 	unsigned int i = 0;
-	char buffer[1000];
-	char ans[1000];
+	char *buffer = malloc(1000);
+	char *ans = malloc(1000);
 	char *s;
 	int n;
 	float f;
@@ -57,4 +58,6 @@ void print_all(const char * const format, ...)
 	va_end(ap);
 	strncpy(buffer, ans, strlen(ans) - 2);
 	printf("%s\n", buffer);
+	free(buffer);
+	free(ans);
 }
