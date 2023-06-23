@@ -17,7 +17,6 @@ void print_string(char *s)
 	printf("%s", s);
 }
 
-
 /**
  * print_all - Prints any input for the function
  * @format: a list of types of arguments passed to the function
@@ -26,10 +25,6 @@ void print_all(const char * const format, ...)
 {
 	unsigned int i = 0;
 	unsigned int j = strlen(format) - 1;
-	char c;
-	int n;
-	float f;
-	char *s;
 	va_list ap;
 
 	while (format[j] != 'c' && format[j] != 's'
@@ -41,20 +36,16 @@ void print_all(const char * const format, ...)
 		switch (format[i])
 		{
 			case 'c':
-				c = va_arg(ap, char);
-				printf("%c", c);
+				printf("%c", va_arg(ap, int));
 				break;
 			case 'i':
-				n = va_arg(ap, int);
-				printf("%d", n);
+				printf("%d", va_arg(ap, int));
 				break;
 			case 'f':
-				f = va_arg(ap, float);
-				printf("%f", f);
+				printf("%f", va_arg(ap, double));
 				break;
 			case 's':
-				s = va_arg(ap, char *);
-				print_string(s);
+				print_string(va_arg(ap, char *));
 				break;
 		}
 		if (i == j)
