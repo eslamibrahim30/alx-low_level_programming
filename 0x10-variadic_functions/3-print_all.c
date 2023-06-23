@@ -4,57 +4,57 @@
 #include "variadic_functions.h"
 
 /**
- * print_string - Prints a given string
- * @s: the given string
- */
-void print_string(char *s)
-{
-	if (s == NULL)
-	{
-		printf("(nil)");
-		return;
-	}
-	printf("%s", s);
-}
-
-/**
  * print_all - Prints any input for the function
  * @format: a list of types of arguments passed to the function
  */
 void print_all(const char * const format, ...)
 {
 	unsigned int i = 0;
-	unsigned int j = strlen(format) - 1;
+	unsigned int size = strlen(format);
+	char buffer[1000];
+	char ans[1000];
+	char *s;
+	int n;
+	float f;
+	char c;
 	va_list ap;
 
-	while (format[j] != 'c' && format[j] != 's'
-		       && format[j] != 'i' && format[j] != 'f')
-		j--;
+	if (format == NULL)
+		return;
 	va_start(ap, format);
-	while (i <= j)
+	while (i < size)
 	{
 		switch (format[i])
 		{
 			case 'c':
-				printf("%c", (char)va_arg(ap, int));
+				c = va_arg(ap, int);
+				sprintf(buffer, "%c, ", c);
+				strcat(ans, buffer);
 				break;
 			case 'i':
-				printf("%d", (int)va_arg(ap, int));
+				n = va_arg(ap, int);
+				sprintf(buffer, "%d, ", n);
+				strcat(ans, buffer);
 				break;
 			case 'f':
-				printf("%f", (float)va_arg(ap, double));
+				f = va_arg(ap, double);
+				sprintf(buffer, "%f, ", f);
+				strcat(ans, buffer);
 				break;
 			case 's':
-				print_string(va_arg(ap, char *));
+				s = va_arg(ap, char *);
+				if (s == NULL)
+				{
+					sprintf(buffer, "(nil), ");
+					strcat(ans, buffer);
+					break;
+				}
+				sprintf(buffer, "%s, ", s);
+				strcat(ans, buffer);
 				break;
 		}
-		if (i == j)
-		{
-			printf("\n");
-			break;
-		}
-		printf(", ");
 		i++;
 	}
-	va_end(ap);
+	strncpy(buffer, ans, strlen(ans) - 2);
+	printf("%s\n", buffer);
 }
