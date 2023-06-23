@@ -11,8 +11,8 @@
 void print_all(const char * const format, ...)
 {
 	unsigned int i = 0;
-	char *buffer = malloc(10000);
-	char *ans = malloc(10000);
+	char *buffer = malloc(1000);
+	char *ans = malloc(1000);
 	char *s;
 	int n;
 	float f;
@@ -22,6 +22,7 @@ void print_all(const char * const format, ...)
 	if (format == NULL)
 		return;
 	va_start(ap, format);
+	sprintf(buffer, "\n");
 	while (i < (unsigned int)(strlen(format)))
 	{
 		switch (format[i])
