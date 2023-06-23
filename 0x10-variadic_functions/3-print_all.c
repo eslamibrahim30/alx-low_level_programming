@@ -10,7 +10,6 @@
 void print_all(const char * const format, ...)
 {
 	unsigned int i = 0;
-	unsigned int size = strlen(format);
 	char buffer[1000];
 	char ans[1000];
 	char *s;
@@ -22,7 +21,7 @@ void print_all(const char * const format, ...)
 	if (format == NULL)
 		return;
 	va_start(ap, format);
-	while (i < size)
+	while (i < (unsigned int)(strlen(format)))
 	{
 		switch (format[i])
 		{
@@ -55,6 +54,7 @@ void print_all(const char * const format, ...)
 		}
 		i++;
 	}
+	va_end(ap);
 	strncpy(buffer, ans, strlen(ans) - 2);
 	printf("%s\n", buffer);
 }
