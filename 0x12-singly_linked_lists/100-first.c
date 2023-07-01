@@ -1,9 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - check the code
- *
- * Return: Always 0.
+ * before_main - Prints text before the main function executes
  */
 void __attribute__ ((constructor)) before_main()
 {
