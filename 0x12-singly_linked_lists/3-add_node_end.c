@@ -12,27 +12,28 @@
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
+	list_t *node;
 	list_t *itr;
 	unsigned int size = 0;
 
+	node = (list_t *)malloc(sizeof(list_t));
+	if (node == NULL)
+		return (NULL);
+	node->str = strdup(str);
+	while (node != NULL && *(str + size) != '\0')
+		size++;
+	node->len = size;
+	node->next = NULL;
 	itr = *head;
 	if (itr == NULL)
 	{
-		itr = (list_t *)malloc(sizeof(list_t));
+		*head = node;
 	}
 	else
 	{
 		while (itr->next != NULL)
 			itr = itr->next;
-		itr->next = (list_t *)malloc(sizeof(list_t));
-		itr = itr->next;
+		itr->next = node;
 	}
-	if (itr == NULL)
-		return (NULL);
-	itr->str = strdup(str);
-	while (str != NULL && *(str + size) != '\0')
-		size++;
-	itr->len = size;
-	itr->next = NULL;
-	return (itr);
+	return (node);
 }
