@@ -4,6 +4,7 @@
 /**
  * get_nodeint_at_index - Gets node at a specified index in a list.
  * @head: the address of the head of the list.
+ * @index: the index of the target node.
  *
  * Return: the nth node of a listint_t linked list.
  */
