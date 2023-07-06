@@ -15,9 +15,10 @@ void print_binary(unsigned long int n)
 		_putchar('0');
 		return;
 	}
-	while ((max_2 << size) <= n)
+	while ((max_2 << size) < n)
 		size++;
-	size--;
+	if ((max_2 << size) > n)
+		size--;
 	while (size >= 0)
 	{
 		if ((max_2 << size) & n)
