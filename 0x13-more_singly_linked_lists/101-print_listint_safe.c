@@ -16,7 +16,7 @@ size_t print_listint_safe(const listint_t *head)
 	const listint_t *ptr_b = NULL;
 
 	if (head == NULL)
-		exit(98);
+		return (0);
 	ptr_a = head;
 	ptr_b = head;
 	while (ptr_a != NULL)
