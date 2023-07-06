@@ -36,7 +36,7 @@ size_t print_listint_safe(const listint_t *head)
 			ptr_a = ptr_a->next;
 			ptr_b = ptr_b->next;
 		}
-		if (is_loop == 1 && ptr_a == ptr_b)
+		if ((is_loop == 1 && ptr_a == ptr_b) || ptr_a == head)
 			break;
 		else if (ptr_a == ptr_b && ptr_a != NULL)
 		{
