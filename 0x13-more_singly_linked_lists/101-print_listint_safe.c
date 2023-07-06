@@ -11,6 +11,7 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t size = 0;
+	int is_loop = 0;
 	const listint_t *ptr_a = NULL;
 	const listint_t *ptr_b = NULL;
 
@@ -20,26 +21,31 @@ size_t print_listint_safe(const listint_t *head)
 	ptr_b = head;
 	while (ptr_a != NULL)
 	{
-		printf("[%p] %d\n", (void *)ptr_a, ptr_a->n);
-		size++;
-		if (ptr_b == ptr_a && ptr_b != head)
+		if (is_loop == 0)
+		{
+			printf("[%p] %d\n", (void *)ptr_a, ptr_a->n);
+			size++;
+			ptr_a = ptr_a->next;
+			if (ptr_b != NULL && ptr_b->next != NULL)
+				ptr_b = ptr_b->next->next;
+		}
+		else
+		{
+			printf("[%p] %d\n", (void *)ptr_b, ptr_b->n);
+			size++;
+			ptr_a = ptr_a->next;
+			ptr_b = ptr_b->next;
+		}
+		if (is_loop == 1 && ptr_a == ptr_b)
 			break;
-		ptr_a = ptr_a->next;
-		if (ptr_b != NULL && ptr_b->next != NULL)
-			ptr_b = ptr_b->next->next;
+		else if (ptr_a == ptr_b && ptr_a != NULL)
+		{
+			is_loop = 1;
+			ptr_a = head;
+		}
 	}
 	if (ptr_a == NULL)
 		return (size);
-	ptr_a = head;
-	while (1)
-	{
-		ptr_b = ptr_b->next;
-		ptr_a = ptr_a->next;
-		if (ptr_b == ptr_a)
-			break;
-		printf("[%p] %d\n", (void *)ptr_b, ptr_b->n);
-		size++;
-	}
 	printf("-> [%p] %d\n", (void *)ptr_a, ptr_a->n);
 	return (size);
 }
