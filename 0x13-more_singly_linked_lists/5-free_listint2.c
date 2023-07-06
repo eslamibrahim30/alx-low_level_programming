@@ -3,7 +3,7 @@
 
 /**
  * free_listint2 - Frees a listint_t list.
- * @head: the address of the head of the list to which we add the new node.
+ * @head: the address of the head of the list.
  */
 void free_listint2(listint_t **head)
 {
