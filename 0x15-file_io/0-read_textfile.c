@@ -36,10 +36,16 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	{
 		error = putchar(buffer[i]);
 		if (error == -1)
+		{
+			free(buffer);
+			close(fd);
 			return (0);
+		}
 		i++;
 	}
 	free(buffer);
 	close(fd);
+	if (i < printed)
+		return (0);
 	return (printed);
 }
