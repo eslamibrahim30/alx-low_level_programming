@@ -14,28 +14,29 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
+	unsigned int i = 0;
 	size_t printed = 0;
 	int fd = 0;
-	const int SIZE = letters + 1;
-	char *buffer = malloc(SIZE);
-	unsigned int i;
+	char *buffer = NULL;
 
-	if (filename == NULL || buffer == NULL)
+	if (filename == NULL)
+		return (0);
+	buffer = malloc(letters + 1);
+	if (buffer == NULL)
 		return (0);
 	fd = open(filename, O_RDONLY);
-	if (fd == -1)
+	if (fd < 0)
 	{
 		free(buffer);
 		return (0);
 	}
 	printed = read(fd, buffer, letters);
-	buffer[SIZE - 1] = '\0';
-	i = 0;
-	while (buffer[i] != '\0')
+	buffer[letters] = '\0';
+	for (i = 0; i <= letters; i++)
 	{
 		putchar(buffer[i]);
-		i++;
 	}
 	free(buffer);
+	close(fd);
 	return (printed);
 }
