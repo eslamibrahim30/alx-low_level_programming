@@ -26,12 +26,18 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (buffer == NULL)
 		return (0);
 	fd = open(filename, O_RDONLY);
-	if (fd < 0)
+	if (fd == -1)
 	{
 		free(buffer);
 		return (0);
 	}
 	printed = read(fd, buffer, letters);
+	if (printed == -1)
+	{
+		free(buffer);
+		close(fd);
+		return (0);
+	}
 	while (i < printed && i < letters)
 	{
 		error = putchar(buffer[i]);
