@@ -6,7 +6,7 @@
 
 /**
  * main - Entry point
- * @ar: the number of arguments of the main function
+ * @ac: the number of arguments of the main function
  * @av: the actual arguments of the main function
  *
  * Return: Always 0 (Success)
