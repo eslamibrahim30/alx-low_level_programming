@@ -59,7 +59,7 @@ int main(int ac, char **av)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			exit(99);
 		}
-	} while (nbytes == 1024);
+	} while (nbytes > 0);
 	free(buffer);
 	error = close(fd_from);
 	if (error == -1)
