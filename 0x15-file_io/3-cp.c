@@ -48,7 +48,7 @@ int main(int ac, char **av)
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 			exit(98);
 		}
-		nbytes = write(fd_to, buffer, 1024);
+		nbytes = write(fd_to, buffer, nbytes);
 		if (buffer[nbytes - 1] == '\0')
 			break;
 		if (nbytes == -1)
