@@ -38,7 +38,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		close(fd);
 		return (0);
 	}
-	while (i < printed && i < letters)
+	while (i < letters)
 	{
 		error = putchar(buffer[i]);
 		if (error == -1)
