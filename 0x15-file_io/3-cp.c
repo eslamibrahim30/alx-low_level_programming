@@ -89,7 +89,7 @@ int main(int ac, char **av)
 			break;
 		if (nbytes == -1)
 			exit(error_(5, av, fd_from, fd_to, &buffer));
-	} while (strlen(nbytes) != 0);
+	} while (strlen(buffer) != 0);
 	free(buffer);
 	error = close(fd_from);
 	if (error == -1)
