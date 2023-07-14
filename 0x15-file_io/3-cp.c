@@ -52,7 +52,6 @@ int main(int ac, char **av)
 {
 	int fd_from = -1;
 	int fd_to = -1;
-	int error = -1;
 	char *buffer = NULL;
 	ssize_t nbytes_read = -1;
 	ssize_t nbytes_written = -1;
@@ -76,11 +75,11 @@ int main(int ac, char **av)
 		if (nbytes_written == -1 || nbytes_read != nbytes_written)
 			exit(error_(3, av, fd_from, fd_to, &buffer));
 	}
-	error = close(fd_from);
-	if (error == -1)
+	fd_from = close(fd_from);
+	fd_to = close(fd_to);
+	if (fd_from == -1)
 		exit(error_(4, av, fd_from, fd_to, &buffer));
-	error = close(fd_to);
-	if (error == -1)
+	if (fd_to == -1)
 		exit(error_(5, av, fd_from, fd_to, &buffer));
 	free(buffer);
 	return (0);
