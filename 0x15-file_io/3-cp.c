@@ -79,7 +79,7 @@ int main(int ac, char **av)
 	if (fd_to == -1)
 		exit(error_(3, av, fd_from, fd_to, &buffer));
 	buffer = malloc(1024);
-	nbytes = read(fd_from, buffer, sizeof(buffer));
+	nbytes = read(fd_from, buffer, 1024);
 	while (nbytes != 0)
 	{
 		if (nbytes == -1)
@@ -87,7 +87,7 @@ int main(int ac, char **av)
 		nbytes = write(fd_to, buffer, nbytes);
 		if (nbytes == -1)
 			exit(error_(5, av, fd_from, fd_to, &buffer));
-		nbytes = read(fd_from, buffer, sizeof(buffer));
+		nbytes = read(fd_from, buffer, 1024);
 	}
 	free(buffer);
 	error = close(fd_from);
