@@ -59,7 +59,7 @@ int main(int ac, char **av)
 
 	if (ac != 3)
 		exit(error_(1, av, fd_from, fd_to, &buffer));
-	fd_from = open(av[1], O_RDONLY);
+	fd_from = open(av[1], O_RDWR);
 	if (fd_from == -1)
 		exit(error_(2, av, fd_from, fd_to, &buffer));
 	fd_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC,
