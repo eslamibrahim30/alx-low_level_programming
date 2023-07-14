@@ -39,16 +39,6 @@ int error_(int c, char **av, int fd_from, int fd_to, char **buffer)
 	}
 	if (c == 4)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-		return (98);
-	}
-	if (c == 5)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
-		return (99);
-	}
-	if (c == 6 || c == 7)
-	{
 		dprintf(STDERR_FILENO, "Error: Can't close %d\n", c == 6 ? fd_from : fd_to);
 		return (100);
 	}
@@ -83,17 +73,17 @@ int main(int ac, char **av)
 	{
 		nbytes = read(fd_from, buffer, 1024);
 		if (nbytes == -1)
-			exit(error_(4, av, fd_from, fd_to, &buffer));
+			exit(error_(2, av, fd_from, fd_to, &buffer));
 		nbytes = write(fd_to, buffer, nbytes);
 		if (nbytes == -1)
-			exit(error_(5, av, fd_from, fd_to, &buffer));
+			exit(error_(3, av, fd_from, fd_to, &buffer));
 	}
 	free(buffer);
 	error = close(fd_from);
 	if (error == -1)
-		exit(error_(6, av, fd_from, fd_to, &buffer));
+		exit(error_(4, av, fd_from, fd_to, &buffer));
 	error = close(fd_to);
 	if (error == -1)
-		exit(error_(7, av, fd_from, fd_to, &buffer));
+		exit(error_(4, av, fd_from, fd_to, &buffer));
 	return (0);
 }
