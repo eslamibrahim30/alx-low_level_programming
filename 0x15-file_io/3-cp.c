@@ -37,9 +37,9 @@ int error_(int c, char **av, int fd_from, int fd_to, char **buffer)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 		return (99);
 	}
-	if (c == 4)
+	if (c == 4 || c == 5)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close %d\n", c == 6 ? fd_from : fd_to);
+		dprintf(STDERR_FILENO, "Error: Can't close %d\n", c == 4 ? fd_from : fd_to);
 		return (100);
 	}
 	return (-1);
@@ -84,6 +84,6 @@ int main(int ac, char **av)
 		exit(error_(4, av, fd_from, fd_to, &buffer));
 	error = close(fd_to);
 	if (error == -1)
-		exit(error_(4, av, fd_from, fd_to, &buffer));
+		exit(error_(5, av, fd_from, fd_to, &buffer));
 	return (0);
 }
