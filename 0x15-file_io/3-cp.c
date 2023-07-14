@@ -58,7 +58,8 @@ int main(int ac, char **av)
 	int fd_to = -1;
 	int error = -1;
 	char *buffer = NULL;
-	ssize_t nbytes = -1;
+	ssize_t nbytes_read = -1;
+	ssize_t nbytes_written = -1;
 
 	if (ac != 3)
 		exit(error_(1, av, fd_from, fd_to, &buffer));
@@ -70,13 +71,13 @@ int main(int ac, char **av)
 	if (fd_to == -1)
 		exit(error_(3, av, fd_from, fd_to, &buffer));
 	buffer = malloc(1024);
-	while (nbytes != 0)
+	while (nbytes_read != 0)
 	{
-		nbytes = read(fd_from, buffer, 1024);
-		if (nbytes == -1)
+		nbytes_read = read(fd_from, buffer, 1024);
+		if (nbytes_read == -1)
 			exit(error_(2, av, fd_from, fd_to, &buffer));
-		nbytes = write(fd_to, buffer, nbytes);
-		if (nbytes == -1)
+		nbytes_written = write(fd_to, buffer, nbytes_read);
+		if (nbytes_written == -1 || nbytes_read != nbytes_written)
 			exit(error_(3, av, fd_from, fd_to, &buffer));
 	}
 	error = close(fd_from);
