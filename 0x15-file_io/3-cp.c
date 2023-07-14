@@ -65,7 +65,8 @@ int main(int ac, char **av)
 	fd_from = open(av[1], O_RDONLY);
 	if (fd_from == -1)
 		exit(error_(2, av, fd_from, fd_to, &buffer));
-	fd_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	fd_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC,
+			S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	if (fd_to == -1)
 		exit(error_(3, av, fd_from, fd_to, &buffer));
 	buffer = malloc(1024);
