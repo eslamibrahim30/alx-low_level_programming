@@ -76,12 +76,12 @@ int main(int ac, char **av)
 		if (nbytes_written == -1 || nbytes_read != nbytes_written)
 			exit(error_(3, av, fd_from, fd_to, &buffer));
 	}
-	free(buffer);
-	error = close(-1);
+	error = close(fd_from);
 	if (error == -1)
 		exit(error_(4, av, fd_from, fd_to, NULL));
 	error = close(fd_to);
 	if (error == -1)
 		exit(error_(5, av, fd_from, fd_to, NULL));
+	free(buffer);
 	return (0);
 }
