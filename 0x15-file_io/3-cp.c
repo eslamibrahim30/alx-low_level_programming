@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <string.h>
 #include "main.h"
 
 /**
@@ -16,10 +17,6 @@
  */
 int error_(int c, char **av, int fd_from, int fd_to, char **buffer)
 {
-	if (fd_from > 0)
-		close(fd_from);
-	if (fd_to > 0)
-		close(fd_to);
 	if (*buffer != NULL)
 		free(*buffer);
 	if (c == 1)
@@ -88,7 +85,7 @@ int main(int ac, char **av)
 			break;
 		if (nbytes == -1)
 			exit(error_(5, av, fd_from, fd_to, &buffer));
-	} while (nbytes > 0);
+	} while (strlen(nbytes) != 0);
 	free(buffer);
 	error = close(fd_from);
 	if (error == -1)
