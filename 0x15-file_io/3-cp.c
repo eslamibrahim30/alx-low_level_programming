@@ -35,7 +35,8 @@ int error_(int c, char **av, int fd_from, int fd_to, char **buffer)
 	}
 	if (c == 4 || c == 5)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", c == 4 ? fd_from : fd_to);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n",
+				c == 4 ? fd_from : fd_to);
 		return (100);
 	}
 	return (-1);
