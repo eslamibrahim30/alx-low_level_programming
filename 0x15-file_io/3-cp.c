@@ -16,10 +16,6 @@
  */
 int error_(int c, char **av, int fd_from, int fd_to, char **buffer)
 {
-	if (fd_from > -1)
-		close(fd_from);
-	if (fd_to > -1)
-		close(fd_to);
 	if (*buffer != NULL)
 		free(*buffer);
 	if (c == 1)
