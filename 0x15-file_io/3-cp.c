@@ -78,6 +78,7 @@ int main(int ac, char **av)
 		if (nbytes == -1)
 			exit(error_(3, av, fd_from, fd_to, &buffer));
 	}
+	free(buffer);
 	error = close(fd_from);
 	if (error == -1)
 		exit(error_(4, av, fd_from, fd_to, &buffer));
