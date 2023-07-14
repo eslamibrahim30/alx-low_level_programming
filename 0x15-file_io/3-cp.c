@@ -84,7 +84,7 @@ int main(int ac, char **av)
 		exit(error_(4, av, fd_from, fd_to, &buffer));
 	error = close(fd_to);
 	if (error == -1)
-		exit(error_(5, av, -1, fd_to, &buffer));
+		exit(error_(5, av, fd_from, fd_to, &buffer));
 	free(buffer);
 	return (0);
 }
