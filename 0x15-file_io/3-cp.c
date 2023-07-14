@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include <string.h>
 #include "main.h"
 
 /**
@@ -80,8 +79,8 @@ int main(int ac, char **av)
 	if (fd_to == -1)
 		exit(error_(3, av, fd_from, fd_to, &buffer));
 	buffer = malloc(1024);
+	nbytes = read(fd_from, buffer, sizeof(buffer));
 	do {
-		nbytes = read(fd_from, buffer, sizeof(buffer));
 		if (nbytes == -1)
 			exit(error_(4, av, fd_from, fd_to, &buffer));
 		nbytes = write(fd_to, buffer, nbytes);
@@ -89,7 +88,8 @@ int main(int ac, char **av)
 			break;
 		if (nbytes == -1)
 			exit(error_(5, av, fd_from, fd_to, &buffer));
-	} while (strlen(buffer) != 0);
+		nbytes = read(fd_from, buffer, sizeof(buffer));
+	} while (nbytes != 0);
 	free(buffer);
 	error = close(fd_from);
 	if (error == -1)
