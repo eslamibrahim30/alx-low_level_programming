@@ -85,5 +85,5 @@ int main(int ac, char **av)
 	error = close(fd_to);
 	if (error == -1)
 		exit(error_(4, av, fd_from, fd_to, &buffer));
-	exit(0);
+	return (0);
 }
