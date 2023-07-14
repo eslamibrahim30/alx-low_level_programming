@@ -16,7 +16,7 @@
  */
 int error_(int c, char **av, int fd_from, int fd_to, char **buffer)
 {
-	if (buffer != NULL && *buffer != NULL)
+	if (*buffer != NULL)
 		free(*buffer);
 	if (c == 1)
 	{
@@ -78,10 +78,10 @@ int main(int ac, char **av)
 	}
 	error = close(fd_from);
 	if (error == -1)
-		exit(error_(4, av, fd_from, fd_to, NULL));
+		exit(error_(4, av, fd_from, fd_to, &buffer));
 	error = close(fd_to);
 	if (error == -1)
-		exit(error_(5, av, fd_from, fd_to, NULL));
+		exit(error_(5, av, fd_from, fd_to, &buffer));
 	free(buffer);
 	return (0);
 }
