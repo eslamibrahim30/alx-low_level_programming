@@ -84,8 +84,6 @@ int main(int ac, char **av)
 		if (nbytes == -1)
 			exit(error_(4, av, fd_from, fd_to, &buffer));
 		nbytes = write(fd_to, buffer, nbytes);
-		if (buffer[nbytes - 1] == '\0')
-			break;
 		if (nbytes == -1)
 			exit(error_(5, av, fd_from, fd_to, &buffer));
 		nbytes = read(fd_from, buffer, sizeof(buffer));
