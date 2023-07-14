@@ -40,7 +40,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 	while (i < printed)
 	{
-		error = putchar(buffer[i]);
+		error = write(STDOUT_FILENO, buffer[i], 1);
 		if (error == -1)
 		{
 			free(buffer);
