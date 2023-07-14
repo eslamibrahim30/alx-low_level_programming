@@ -80,7 +80,7 @@ int main(int ac, char **av)
 		exit(error_(3, av, fd_from, fd_to, &buffer));
 	buffer = malloc(1024);
 	do {
-		nbytes = read(fd_from, buffer, 1024);
+		nbytes = read(fd_from, buffer, sizeof(buffer));
 		if (nbytes == -1)
 			exit(error_(4, av, fd_from, fd_to, &buffer));
 		nbytes = write(fd_to, buffer, nbytes);
