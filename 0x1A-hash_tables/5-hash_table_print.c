@@ -12,18 +12,18 @@ void hash_table_print(const hash_table_t *ht)
 	unsigned long int i = 0;
 	int written = 0;
 
-	if (ht == NULL || ht->size == 0)
+	if (ht == NULL)
 		return;
 	printf("{");
 	for (i = 0; i < ht->size; i++)
 	{
-		ptr = ht->array[i];
-		if (written == 1 && ptr != NULL)
+		if (written == 1 && ht->array[i] != NULL)
 		{
 			printf(", ");
 		}
-		if (ptr != NULL)
+		if (ht->array[i] != NULL)
 		{
+			ptr = ht->array[i];
 			written = 1;
 			while (ptr->next != NULL)
 			{
