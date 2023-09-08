@@ -27,10 +27,10 @@ void hash_table_print(const hash_table_t *ht)
 			written = 1;
 			while (ptr->next != NULL)
 			{
-				printf("'%s' : '%s', ", ptr->key, ptr->value);
+				printf("'%s': '%s', ", ptr->key, ptr->value);
 				ptr = ptr->next;
 			}
-			printf("'%s' : '%s'", ptr->key, ptr->value);
+			printf("'%s': '%s'", ptr->key, ptr->value);
 		}
 	}
 	printf("}\n");
