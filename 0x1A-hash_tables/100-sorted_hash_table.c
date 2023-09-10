@@ -12,6 +12,7 @@
 shash_table_t *shash_table_create(unsigned long int size)
 {
 	shash_table_t *new_shash = NULL;
+	unsigned long int i = 0;
 
 	new_shash = (shash_table_t *)malloc(sizeof(shash_table_t));
 	if (new_shash == NULL)
@@ -23,6 +24,8 @@ shash_table_t *shash_table_create(unsigned long int size)
 		free(new_shash);
 		return (NULL);
 	}
+	for (i = 0; i < size; i++)
+		new_shash->array[i] = NULL;
 	new_shash->shead = NULL;
 	new_shash->stail = NULL;
 	return (new_shash);
