@@ -3,6 +3,7 @@
 This module contains the function island_perimeter
 """
 
+
 def island_perimeter(grid):
     """
     This function returns the perimeter of the island
@@ -16,12 +17,12 @@ def island_perimeter(grid):
         for j in range(len(grid[0])):
             if (grid[i][j] == 1 and j < first_1_row):
                 first_1_row = j
-            if (grid[i][j] == 1 and j  > last_1_row):
+            if (grid[i][j] == 1 and j > last_1_row):
                 last_1_row = j
     for i in range(len(grid[0])):
         for j in range(len(grid)):
-                if (grid[j][i] == 1 and j < first_1_col):
-                    first_1_col = j
-                if (grid[j][i] == 1 and j > last_1_col):
-                    last_1_col = j
+            if (grid[j][i] == 1 and j < first_1_col):
+                first_1_col = j
+            if (grid[j][i] == 1 and j > last_1_col):
+                last_1_col = j
     return ((last_1_row - first_1_row + last_1_col - first_1_col + 2) * 2)
