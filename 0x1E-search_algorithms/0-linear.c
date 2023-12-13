@@ -4,7 +4,6 @@
 
 /**
  * linear_search - Searches for a value in an array of integers.
- *
  * @array: a pointer to the first element of the array to search in.
  * @size: the number of elements in array.
  * @value: the value to search for.
@@ -15,7 +14,7 @@ int linear_search(int *array, size_t size, int value)
 {
 	unsigned int i = 0;
 
-	if (array == NULL)
+	if (array == NULL || sizeof(array) == 0)
 	{
 		return (-1);
 	}
