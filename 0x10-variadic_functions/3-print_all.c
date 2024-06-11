@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
-#include <stdlib.h>
 #include "variadic_functions.h"
 
 /**
@@ -11,8 +10,7 @@
 void print_all(const char * const format, ...)
 {
 	unsigned int i = 0;
-	char *buffer = malloc(1000);
-	char *ans = malloc(1000);
+	unsigned int len = (unsigned int)(strlen(format));
 	char *s;
 	int n;
 	float f;
@@ -22,43 +20,31 @@ void print_all(const char * const format, ...)
 	if (format == NULL)
 		return;
 	va_start(ap, format);
-	sprintf(buffer, "\n");
-	while (i < (unsigned int)(strlen(format)))
+	while (i < len)
 	{
 		switch (format[i])
 		{
 			case 'c':
 				c = va_arg(ap, int);
-				sprintf(buffer, "%c, ", c);
-				strcat(ans, buffer);
+				printf((i == len - 1 ? "%c" : "%c, "), c);
 				break;
 			case 'i':
 				n = va_arg(ap, int);
-				sprintf(buffer, "%d, ", n);
-				strcat(ans, buffer);
+				printf((i == len - 1 ? "%d" : "%d, "), n);
 				break;
 			case 'f':
 				f = va_arg(ap, double);
-				sprintf(buffer, "%f, ", f);
-				strcat(ans, buffer);
+				printf((i == len - 1 ? "%f" : "%f, "), f);
 				break;
 			case 's':
 				s = va_arg(ap, char *);
 				if (s == NULL)
-				{
-					sprintf(buffer, "(nil), ");
-					strcat(ans, buffer);
-					break;
-				}
-				sprintf(buffer, "%s, ", s);
-				strcat(ans, buffer);
-				break;
+					printf((i == len - 1 ? "(nil)" : "(nil), "));
+				else
+					printf((i == len - 1 ? "%s" : "%s, "), s);
 		}
 		i++;
 	}
 	va_end(ap);
-	strncpy(buffer, ans, strlen(ans) - 2);
-	printf("%s\n", buffer);
-	free(buffer);
-	free(ans);
+	printf("\n");
 }
