@@ -39,9 +39,11 @@ void print_all(const char * const format, ...)
 			case 's':
 				s = va_arg(ap, char *);
 				if (s == NULL)
+				{
 					printf((i == len - 1 ? "(nil)" : "(nil), "));
-				if (s != NULL)
-					printf((i == len - 1 ? "%s" : "%s, "), s);
+					continue;
+				}
+				printf((i == len - 1 ? "%s" : "%s, "), s);
 		}
 		i++;
 	}
