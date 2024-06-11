@@ -40,7 +40,7 @@ void print_all(const char * const format, ...)
 				s = va_arg(ap, char *);
 				if (s == NULL)
 					printf((i == len - 1 ? "(nil)" : "(nil), "));
-				else
+				if (s != NULL)
 					printf((i == len - 1 ? "%s" : "%s, "), s);
 		}
 		i++;
