@@ -25,7 +25,7 @@ size_t free_listint_safe(listint_t **h)
 		size++;
 		ptr_a = ptr_b;
 		if (ptr_b != NULL)
-			ptr_b = ptr_b->next;
+			ptr_b = ptr_a->next;
 	}
 	*h = NULL;
 	return (size);
