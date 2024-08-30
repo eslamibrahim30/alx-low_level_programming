@@ -14,24 +14,27 @@ size_t free_listint_safe(listint_t **h)
 	listint_t *ptr_a = NULL;
 	listint_t *ptr_b = NULL;
 	listint_t *ptr_fast = NULL;
+	listint_t *ptr_fast_prev = NULL;
 
 	if (h == NULL || *h == NULL)
 		return (0);
 	ptr_a = *h;
 	ptr_b = ptr_a->next;
+	ptr_fast_prev = ptr_a;
 	ptr_fast = ptr_a->next;
 	while (ptr_a != NULL)
 	{
-		if (ptr_fast->next != NULL && ptr_fast->next->next == ptr_b && ptr_b != NULL)
-			ptr_fast->next->next = NULL;
+		if (ptr_fast_prev != NULL && ptr_fast == ptr_a && ptr_a != NULL)
+			ptr_fast_prev->next = NULL;
 		ptr_a->next = NULL;
 		free(ptr_a);
 		size++;
 		ptr_a = ptr_b;
 		if (ptr_b != NULL)
 			ptr_b = ptr_a->next;
-		if (ptr_fast->next != NULL)
-			ptr_fast = ptr_fast->next->next;
+		ptr_fast_prev = ptr_fast->next;
+		if (ptr_fast_prev != NULL)
+			ptr_fast = ptr_fast_prev->next;
 	}
 	*h = NULL;
 	return (size);
