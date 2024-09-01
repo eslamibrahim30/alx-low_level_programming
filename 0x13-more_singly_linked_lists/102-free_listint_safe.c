@@ -33,6 +33,8 @@ size_t free_listint_safe(listint_t **h)
 			ptr_fast = ptr_fast_prev->next;
 		ptr_slow_next = ptr_slow->next;
 		ptr_slow->next = NULL;
+		if (ptr_slow == ptr_fast_prev)
+			ptr_fast_prev = ptr_fast;
 		free(ptr_slow);
 		size++;
 		ptr_slow = ptr_slow_next;
