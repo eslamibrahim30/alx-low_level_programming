@@ -25,7 +25,8 @@ size_t free_listint_safe(listint_t **h)
 	{
 		if (ptr_fast_prev != NULL && ptr_fast == ptr_slow)
 			ptr_fast_prev->next = NULL;
-		ptr_fast_prev = ptr_fast->next;
+		if (ptr_fast != NULL)
+			ptr_fast_prev = ptr_fast->next;
 		if (ptr_fast_prev != NULL)
 			ptr_fast = ptr_fast_prev->next;
 		ptr_slow_next = ptr_slow->next;
