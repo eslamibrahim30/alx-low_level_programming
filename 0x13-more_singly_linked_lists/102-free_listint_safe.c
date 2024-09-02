@@ -7,7 +7,7 @@
  * find_listint_loop - Finds a loop in a listint_t linked list.
  * @head: the head of the linked list.
  *
- * Return: the address of the node where the loop starts,
+ * Return: the address of the node where the loop end,
  * Or NULL if there is no loop.
  */
 listint_t *find_listint_loop(listint_t *head)
@@ -20,11 +20,11 @@ listint_t *find_listint_loop(listint_t *head)
 	ptr_fast = head;
 	while (1)
 	{
-		if (ptr_slow != NULL || ptr_fast != NULL || ptr_fast->next != NULL)
+		if (ptr_slow == NULL || ptr_fast == NULL || ptr_fast->next == NULL)
 			return (NULL);
 		ptr_slow = ptr_slow->next;
 		ptr_fast_prev = ptr_fast->next;
-		ptr_fast = ptr_fast->next->next;
+		ptr_fast = ptr_fast_prev->next;
 		if (ptr_fast == ptr_slow)
 			break;
 	}
@@ -33,7 +33,7 @@ listint_t *find_listint_loop(listint_t *head)
 	{
 		ptr_slow = ptr_slow->next;
 		ptr_fast_prev = ptr_fast;
-		ptr_fast = ptr_fast->next;
+		ptr_fast = ptr_fast_prev->next;
 	}
 	return (ptr_fast_prev);
 }
@@ -50,13 +50,13 @@ size_t free_listint_safe(listint_t **h)
 	size_t size = 0;
 	listint_t *ptr = NULL;
 	listint_t *ptr_next = NULL;
-	listint_t *ptr_loop_start = NULL;
+	listint_t *ptr_loop_end = NULL;
 
 	if (h == NULL || *h == NULL)
 		return (0);
-	ptr_loop_start = find_listint_loop(*h);
-	if (ptr_loop_start != NULL)
-		ptr_loop_start->next = NULL;
+	ptr_loop_end = find_listint_loop(*h);
+	if (ptr_loop_end != NULL)
+		ptr_loop_end->next = NULL;
 	ptr = *h;
 	while (ptr != NULL)
 	{
