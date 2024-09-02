@@ -11,34 +11,27 @@
 size_t free_listint_safe(listint_t **h)
 {
 	size_t size = 0;
-	listint_t *ptr_slow = NULL;
-	listint_t *ptr_slow_next = NULL;
-	listint_t *ptr_fast = NULL;
-	listint_t *ptr_fast_prev = NULL;
+	listint_t *ptr = NULL;
+	listint_t *ptr_next = NULL;
 
 	if (h == NULL || *h == NULL)
 		return (0);
-	ptr_slow = *h;
-	ptr_fast_prev = ptr_slow;
-	ptr_fast = ptr_slow;
-	while (ptr_slow != NULL)
+	ptr = *h;
+	while (ptr->next != NULL && ptr->next->next != NULL)
 	{
-		if (ptr_fast != NULL)
-			ptr_fast_prev = ptr_fast->next;
-		if (ptr_fast_prev != NULL)
-			ptr_fast = ptr_fast_prev->next;
-		if (ptr_fast_prev != NULL && (ptr_fast == ptr_slow || ptr_fast == *h))
-		{
-			ptr_fast_prev->next = NULL;
-			ptr_fast = NULL;
-			ptr_fast_prev = NULL;
-		}
-		ptr_slow_next = ptr_slow->next;
-		ptr_slow->next = NULL;
-		free(ptr_slow);
+		ptr_next = ptr->next;
+		ptr->next = ptr_next->next;
+		ptr_next->next = NULL;
+		free(ptr_next);
 		size++;
-		ptr_slow = ptr_slow_next;
 	}
+	if (ptr->next != NULL && ptr->next->next != NULL)
+	{
+		free(ptr->next);
+		size++;
+	}
+	free(ptr);
+	size++;
 	*h = NULL;
 	return (size);
 }
