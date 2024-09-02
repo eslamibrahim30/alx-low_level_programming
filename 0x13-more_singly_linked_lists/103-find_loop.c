@@ -14,8 +14,6 @@ listint_t *find_listint_loop(listint_t *head)
 	listint_t *ptr_slow = NULL;
 	listint_t *ptr_fast = NULL;
 
-	if (head == NULL)
-		return (0);
 	ptr_slow = head;
 	ptr_fast = head;
 	while (ptr_fast != NULL)
