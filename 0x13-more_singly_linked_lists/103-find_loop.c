@@ -16,13 +16,10 @@ listint_t *find_listint_loop(listint_t *head)
 
 	ptr_slow = head;
 	ptr_fast = head;
-	while (ptr_fast != NULL)
+	while (ptr_slow != NULL && ptr_fast != NULL && ptr_fast->next != NULL)
 	{
 		ptr_slow = ptr_slow->next;
-		if (ptr_fast != NULL)
-			ptr_fast = ptr_fast->next;
-		if (ptr_fast != NULL)
-			ptr_fast = ptr_fast->next;
+		ptr_fast = ptr_fast->next->next;
 		if (ptr_fast == ptr_slow)
 			return (ptr_slow);
 	}
