@@ -11,37 +11,22 @@
  */
 listint_t *find_listint_loop(listint_t *head)
 {
-	listint_t *ptr_a = NULL;
-	listint_t *ptr_b = NULL;
+	listint_t *ptr_slow = NULL;
+	listint_t *ptr_fast = NULL;
 
 	if (head == NULL)
 		return (0);
-	ptr_a = head;
-	ptr_b = head;
-	while (ptr_a != NULL)
+	ptr_slow = head;
+	ptr_fast = head;
+	while (ptr_fast != NULL)
 	{
-		printf("[%p] %d\n", (void *)ptr_a, ptr_a->n);
-		ptr_a = ptr_a->next;
-		if (ptr_b != NULL && ptr_b->next != NULL)
-			ptr_b = ptr_b->next->next;
-		if (ptr_b == ptr_a && ptr_a == head)
-		{
-			printf("-> [%p] %d\n", (void *)ptr_a, ptr_a->n);
-			return (ptr_a);
-		}
-		if (ptr_b == ptr_a)
-			break;
-
+		ptr_slow = ptr_slow->next;
+		if (ptr_fast != NULL)
+			ptr_fast = ptr_fast->next;
+		if (ptr_fast != NULL)
+			ptr_fast = ptr_fast->next;
+		if (ptr_fast == ptr_slow)
+			return (ptr_slow);
 	}
-	if (ptr_a == NULL)
-		return (NULL);
-	ptr_a = head;
-	while (ptr_a != ptr_b)
-	{
-		printf("[%p] %d\n", (void *)ptr_b, ptr_b->n);
-		ptr_a = ptr_a->next;
-		ptr_b = ptr_b->next;
-	}
-	printf("-> [%p] %d\n", (void *)ptr_a, ptr_a->n);
-	return (ptr_a);
+	return (NULL);
 }
