@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include "lists.h"
 
 /**
@@ -17,7 +16,7 @@ listint_t *find_listint_loop(listint_t *head)
 
 	ptr_slow = head;
 	ptr_fast = head;
-	while (true)
+	while (1)
 	{
 		if (ptr_slow != NULL && ptr_fast != NULL && ptr_fast->next != NULL)
 			return (NULL);
