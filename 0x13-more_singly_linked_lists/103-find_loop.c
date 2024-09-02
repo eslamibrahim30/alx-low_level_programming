@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "lists.h"
 
 /**
@@ -26,10 +27,10 @@ listint_t *find_listint_loop(listint_t *head)
 			break;
 	}
 	ptr_slow = head;
-	while (ptr_slow != ptr_head)
+	while (ptr_slow != ptr_fast)
 	{
 		ptr_slow = ptr_slow->next;
 		ptr_fast = ptr_fast->next;
-	} 
+	}
 	return (ptr_slow);
 }
